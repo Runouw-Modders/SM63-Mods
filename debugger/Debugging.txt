@@ -1,0 +1,4 @@
+Form a:
+25x17~0*425*~1,67,443,0,0,Right|73,102,451,%3Cimg%20src%3D%22http%3A%2F%2Fjhynjhiruu%2Euk%2Fsm63db%2Fa%2Eswf%22%3E|34,88,461,1,0~1~1~CinemaMessage
+Form b:
+25x17~0*425*~1,67,443,0,0,Right|73,102,451,%3Cimg%20src%3D%22http%3A%2F%2Fjhynjhiruu%2Euk%2Fsm63db%2Fb%2Eswf%22%3E|34,88,461,1,0~1~1~AreaTextClipF
