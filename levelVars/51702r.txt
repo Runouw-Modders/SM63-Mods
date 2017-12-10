@@ -1,2 +1,2 @@
-var_1=wau
+var_1="wau"
 
