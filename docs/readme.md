@@ -1,1 +1,1 @@
-https://runouw-mods.github.io/SM63-Mods/
+https://runouw-modders.github.io/SM63-Mods/
