@@ -1,22 +1,49 @@
 <html>
 	<head>
-		<title>SM63 Level Designer 2.5</title>
-        <style>
-        body { 
-        background-color: #1280FF;
-        }
-        nav {
-        float: left;
-        background-color: #79A7E3;
-        }
-        </style>
+		<title>SM63 Level Designer 2.5 - Assembler</title>
+        <link rel="stylesheet" type="text/css" href="runouw_style.css">
 	</head>
 	<body>
-		<nav>
-        <a href="https://github.com/Runouw-Mods/SM63-Mods">Github Main</a>
+        <header>
+           <h1>SM63 Level Designer 2.5</h1>
+        </header>
+        <nav>
+            <a class="page_at">Assembler</a>
+            <a href="about.html">About</a>
+            <a href="https://github.com/Runouw-Mods/SM63-Mods">Github Main</a>
+            <a href="https://github.com/Runouw-Mods/SM63-Mods/tree/master/public">Hack File List</a>
         </nav>
-        <hi>SM63 Level Designer 2.5</h1>
-        
-        <p>This is a test</p>
+        <main>
+
+            <p>This page holds all of the tools for setting up your level to take advantage of all the new <br />
+            Hacks for Super Mario 63, designed by several <a href="about.html">Runouw.com members</a>.</p>
+            
+            <form>
+                <h2>Hack Code Assembler</h2>
+                <p>Choose your options from those below:</p>
+                <table>
+                <tr><td class="label">Assembler Mode:</td><td>
+                <select name="assemblerMode" onchange="switchModes(this.value)">
+                <option value="automatic" selected>Automatic</option>
+                <option value="custom">Custom</option>
+                </select></td></tr>
+                <tr><td class="label">Payload Location:</td><td><select name="payloadLocation">
+                <option value="Level Title" selected>Level Title</option>
+                <option value="Sign">Sign</option>
+                </select></td></tr>
+                <tr><td class="label">Level Name:</td><td><input type="text" name="levelName" size="60"/></td></tr>
+                <tr><td class="label">Level Width:</td><td><input type="text" name="levelWidth" size="5"/></td></tr>
+                <tr><td class="label">Level Height:</td><td><input type="text" name="levelHeight" size="5"/></td></tr>
+                <tr class="automatic"><td class="label">LDE:</td><td>Enabled <input type="checkbox" name="enableLDE" value="LDE" checked></td></tr>
+                <tr class="custom"><td class="label">Wii Mode:</td><td>Enabled <input type="checkbox" name="enableLDE" value="LDE"></td></tr>
+                <tr class="custom"><td class="label">Water Level:</td><td>Enabled <input type="checkbox" name="enableLDE" value="LDE"></td></tr>
+                <tr class="custom"><td class="label">Jump Height:</td><td>Enabled <input type="checkbox" name="enableLDE" value="LDE"></td></tr>
+                <tr class="custom"><td class="label">Gravity:</td><td>Enabled <input type="checkbox" name="enableLDE" value="LDE"></td></tr>
+                </table>
+                <button type="button" onclick="sayHi('Mark')">Generate Code</button>
+                <hr />
+            </form>
+        <script src="runouw_script.js"></script>
+        </main>
 	</body>
 </html>
