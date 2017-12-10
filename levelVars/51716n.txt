@@ -1,4 +1,1 @@
-var_1=yay
-usesTimer=true
-timerText=yay
-checkpointText=checkpoint lol
+var_1=yay&usesTimer=true&timerText=yay&checkpointText=checkpoint lol
