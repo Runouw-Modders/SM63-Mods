@@ -16,5 +16,5 @@ function setCollectionDisplay(thisCollection, thisDisplayStatus) {
 }
 
 function sayHi(thisName) {
-    alert('Hello');
+    alert('Code isn\'t finished if you hadn\'t noticed');
 }
