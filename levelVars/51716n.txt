@@ -1,1 +1,1 @@
-var_1=Hi Rai :)
+var_1=Hi :)
