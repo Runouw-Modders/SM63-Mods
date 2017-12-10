@@ -1,2 +1,3 @@
+vars=[var_1]
 var_1=We can now load variables and stuff from text files! Expect to see some awesome stuff using this in the future.
 
