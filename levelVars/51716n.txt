@@ -1,1 +1,1 @@
-var_1=yay&usesTimer=true&timerText=yay&checkpointText=checkpoint lol
+usesTimer=false
