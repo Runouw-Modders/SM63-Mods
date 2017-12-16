@@ -33,6 +33,14 @@ $(function(){
         return newValue;
     }
     
+    function myURLEncode(thisString) {
+        var finalResult;
+        finalResult = encodeURIComponent(thisString);
+        finalResult = finalResult.replace(/[,]/g, "%2C");
+        finalResult = finalResult.replace(/[.]/g, "%2E");
+        return finalResult;
+    }
+    
     $("#assemblerMode").change(function(event){
         if ($("#assemblerMode").val() == "automatic") {
             $(".automatic").show();
@@ -53,7 +61,7 @@ $(function(){
     $("#generateLevelCode").click(function(event){
         var myLevelCode, myLand, myBackground, myHeight, myWidth, myLevelName, myPayload;
         myLevelCode = $("#levelWidth").val() + "x" + $("#levelHeight").val() + "~";
-        myLevelName = encodeURIComponent($("#levelName").val()); 
+        myLevelName = myURLEncode($("#levelName").val()); 
         myPayload = ""
         if ($("#levelStyle").val() == "grass"){
             myLand = "2K2M";
@@ -72,8 +80,9 @@ $(function(){
             myLevelCode += "0*" + ($("#levelHeight").val() - 2) + "*" + myLand
         }
         if ($("#enableLDE").is(":checked")) {
-            myPayload = encodeURIComponent('<img src="https://raw.githubusercontent.com/Runouw-Modders/SM63-Mods/blob/master/public/LDE.swf">');
+            myPayload = myURLEncode('<img src="https://raw.githubusercontent.com/Runouw-Modders/SM63-Mods/blob/master/public/LDE.swf">');
         }
+        
         myHeight = ($("#levelHeight").val() * 32) - 128;
         myWidth = ($("#levelWidth").val() * 32) - 128;
         myLevelCode += "~1,0," + myHeight + ",0,0,Right|"; //Mario
