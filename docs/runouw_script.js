@@ -51,9 +51,10 @@ $(function(){
     });
     
     $("#generateLevelCode").click(function(event){
-        var myLevelCode, myLand, myBackground, myHeight, myWidth, myLevelName;
+        var myLevelCode, myLand, myBackground, myHeight, myWidth, myLevelName, myPayload;
         myLevelCode = $("#levelWidth").val() + "x" + $("#levelHeight").val() + "~";
-        myLevelName = encodeURI($("#levelName").val()); 
+        myLevelName = encodeURIComponent($("#levelName").val()); 
+        myPayload = ""
         if ($("#levelStyle").val() == "grass"){
             myLand = "2K2M";
             myBackground = "~1~1~";
@@ -70,13 +71,15 @@ $(function(){
         for(i = 0; i < $("#levelWidth").val(); i++) {
             myLevelCode += "0*" + ($("#levelHeight").val() - 2) + "*" + myLand
         }
-        
+        if ($("#enableLDE").is(":checked")) {
+            myPayload = encodeURIComponent('<img src="https://raw.githubusercontent.com/Runouw-Modders/SM63-Mods/blob/master/public/LDE.swf">');
+        }
         myHeight = ($("#levelHeight").val() * 32) - 128;
         myWidth = ($("#levelWidth").val() * 32) - 128;
         myLevelCode += "~1,0," + myHeight + ",0,0,Right|"; //Mario
         myLevelCode += "6," + myWidth + "," + myHeight; // + "|" //Shine Sprite
         //myLevelCode += "73,48," & (myHeight + 32) & "," & mySignText & ","; //Sign with selected options
-        myLevelCode += myBackground + myLevelName;
+        myLevelCode += myBackground + myLevelName + myPayload;
         
         $("#myOutput").html(myLevelCode);
     });
