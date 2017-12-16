@@ -96,7 +96,7 @@ $(function(){
     $("#selectText").click(function(event){
         $("#myOutput").select();
     });
-    
+     
     
 
 
