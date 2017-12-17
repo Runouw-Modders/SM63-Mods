@@ -61,6 +61,13 @@ background-color: black;
 background-image: url("images/smallscape.png");
 border: 2px solid black;
 }
+.currentVersion {
+width: 90%;
+text-align: center;
+padding: 10px;
+background-color: #79A7E3;
+border-radius: 25px;
+}
 form {
 width:600px;
 margin: 10px auto;
@@ -111,4 +118,3 @@ border: solid 2px black;
 padding: 5px;
 margin: 0px;
 }
- 
