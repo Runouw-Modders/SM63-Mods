@@ -109,9 +109,9 @@ $(function(){
     });
     $("#pageValue").keydown(function(event){
         if (event.which == 40) {
-            $("#pageValue").val(stepNumber($("#pageValue").val() - 1, -1, 999, 1));
+            $("#pageValue").val(stepNumber($("#pageValue").val(), -1, 999, 1));
         } else if (event.which == 38) {
-            $("#pageValue").val(stepNumber($("#pageValue").val() - 1, 1, 999, 1));
+            $("#pageValue").val(stepNumber($("#pageValue").val(), 1, 999, 1));
         }
     });
     
