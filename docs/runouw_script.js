@@ -138,31 +138,31 @@ $(function(){
         }
         
         if ($("#enableLDE").is(":checked")) {
-            myPayload = myURLEncode('<img src="https://raw.githubusercontent.com/Runouw-Modders/SM63-Mods/blob/master/public/LDE.swf">');
+            myPayload = myURLEncode('<img src="https://raw.githubusercontent.com/Runouw-Modders/SM63-Mods/master/public/LDE.swf">');
         } else {
             if ($("#enableJumpHeight").is(":checked")) {
-                myPayload = myURLEncode('<img src="https://raw.githubusercontent.com/Runouw-Modders/SM63-Mods/blob/master/public/jumpHeight.swf">');
+                myPayload = myURLEncode('<img src="https://raw.githubusercontent.com/Runouw-Modders/SM63-Mods/master/public/jumpHeight.swf">');
                 myPayload += myURLEncode("<jumpHeight:" + $("#jumpHeightValue").val() + ">");
             }
             if ($("#enableGravity").is(":checked")) {
-                myPayload += myURLEncode('<img src="https://raw.githubusercontent.com/Runouw-Modders/SM63-Mods/blob/master/public/Gravity.swf">');
+                myPayload += myURLEncode('<img src="https://raw.githubusercontent.com/Runouw-Modders/SM63-Mods/master/public/Gravity.swf">');
                 myPayload += myURLEncode("<gravity:" + $("#gravityValue").val() + ">");
             }
             if ($("#enablePage").is(":checked")) {
-                myPayload += myURLEncode('<img src="https://raw.githubusercontent.com/Runouw-Modders/SM63-Mods/blob/master/public/Page.swf">');
+                myPayload += myURLEncode('<img src="https://raw.githubusercontent.com/Runouw-Modders/SM63-Mods/master/public/Page.swf">');
                 myPayload += myURLEncode("<page:" + $("#pageValue").val() + ">");
             }
             if ($("#enableRespawning").is(":checked")) {
-                myPayload += myURLEncode('<img src="https://raw.githubusercontent.com/Runouw-Modders/SM63-Mods/blob/master/public/Respawning.swf">');
+                myPayload += myURLEncode('<img src="https://raw.githubusercontent.com/Runouw-Modders/SM63-Mods/master/public/Respawning.swf">');
             }
             if ($("#enableStringData").is(":checked")) {
-                myPayload += myURLEncode('<img src="https://raw.githubusercontent.com/Runouw-Modders/SM63-Mods/blob/master/public/stringData.swf">');
+                myPayload += myURLEncode('<img src="https://raw.githubusercontent.com/Runouw-Modders/SM63-Mods/master/public/stringData.swf">');
             }
             if ($("#enableWiiMode").is(":checked")) {
-                myPayload += myURLEncode('<img src="https://raw.githubusercontent.com/Runouw-Modders/SM63-Mods/blob/master/public/Wii_Mode.swf">');
+                myPayload += myURLEncode('<img src="https://raw.githubusercontent.com/Runouw-Modders/SM63-Mods/master/public/Wii_Mode.swf">');
             }
             if ($("#enableChaosEdition").is(":checked")) {
-                myPayload += myURLEncode('<img src="https://raw.githubusercontent.com/Runouw-Modders/SM63-Mods/blob/master/public/SM63_Chaos_Edition.swf">');
+                myPayload += myURLEncode('<img src="https://raw.githubusercontent.com/Runouw-Modders/SM63-Mods/master/public/SM63_Chaos_Edition.swf">');
             }
         }
         
