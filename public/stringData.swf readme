@@ -6,3 +6,26 @@ This SWF should be loaded in a sign or level title, preferably level title
 
 Author(s) of this SWF:
 Forgotten, Jhynjhiruu
+
+Code:
+```_root.stringData = function(search, string)
+{
+   if(string.indexOf("<" + search + ":") != -1)
+   {
+      i = string;
+      i = i.slice(i.indexOf("<" + search + ":"));
+      if(i.indexOf("<",1) != -1)
+      {
+         i = i.slice(0,i.indexOf("<",1));
+      }
+      if(i.indexOf(">") != -1)
+      {
+         i = i.slice(i.indexOf(":") + 1,i.indexOf(">"));
+         if(isNaN(Number(i)) == false)
+         {
+            return Number(i);
+         }
+         return i;
+      }
+   }
+};```
