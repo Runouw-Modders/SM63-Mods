@@ -15,8 +15,8 @@ Forgotten, Jhynjhiruu, Sekanor
 ### Code
 <details/>
   <summary>DefineButton2 (5)</summary>
-    <details/>
-      <summary>BUTTONCONDACTION</summary>
+  <details/>
+    <summary>BUTTONCONDACTION</summary>
       
 ```
 on(press){
@@ -27,8 +27,8 @@ on(press){
 </details>
 <details/>
   <summary>DefineButton2 (9)</summary>
-    <details/>
-      <summary>BUTTONCONDACTION</summary>
+  <details/>
+    <summary>BUTTONCONDACTION</summary>
   
 ```
 on(press){
@@ -41,8 +41,8 @@ on(press){
 </details>
 <details/>
   <summary>DefineButton2 (12)</summary>
-    <details/>
-      <summary>BUTTONCONDACTION</summary>
+  <details/>
+    <summary>BUTTONCONDACTION</summary>
   
 ```
 on(press){
