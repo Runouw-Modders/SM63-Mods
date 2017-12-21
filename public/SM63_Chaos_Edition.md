@@ -1,12 +1,3 @@
-Effect(s) of this SWF:
-This SWF displays a menu with 3 options: Activate, Randomise and Return to title; Activate activates Chaos Edition, Randomise performs a randomisation, if the Activate button has already been pressed, and Return to title returns the game to the title screen
-
-How this SWF should be used:
-This SWF should be loaded in a sign
-
-Author(s) of this SWF:
-Forgotten, Jhynjhiruu
-
 # SM63_Chaos_Edition.swf
 
 ### Effect(s) of this SWF
