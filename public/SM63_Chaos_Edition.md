@@ -15,26 +15,34 @@ Forgotten, Jhynjhiruu, Sekanor
 ### Code
 <details/>
   <summary>DefineButton2 (5)</summary>
-  
-  ```
-  on(press){
+    <details/>
+      <summary>BUTTONCONDACTION</summary>
+      
+```actionscript
+on(press){
    _root.ReturnToTitle();
 }
-  ```
+```
+  </details>
 </details>
 <details/>
   <summary>DefineButton2 (9)</summary>
+    <details/>
+      <summary>BUTTONCONDACTION</summary>
   
-  ```actionscript
-  on(press){
+```actionscript
+on(press){
    _root.randomise();
    _root.randomiseBGSong();
    _root.randomBG();
 }
-  ``` 
+```
+  </details>
 </details>
 <details/>
   <summary>DefineButton2 (12)</summary>
+    <details/>
+      <summary>BUTTONCONDACTION</summary>
   
 ```actionscript
 on(press){
@@ -288,4 +296,5 @@ on(press){
    };
 }
 ```
+</details>
 </details>
