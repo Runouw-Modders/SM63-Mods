@@ -17,6 +17,7 @@ Jhynjhiruu
   <summary>frame 1</summary>
   <details/>
     <summary>doAction</summary>
+    
 ```
 _root.gravity = Number(_root.stringData("gravity",_root.LDCourseName));
 ```
