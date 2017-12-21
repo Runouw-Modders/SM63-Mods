@@ -15,3 +15,10 @@
 *.PDF	 diff=astextplain
 *.rtf	 diff=astextplain
 *.RTF	 diff=astextplain
+
+# handle swf's and swc's as binaries https://github.com/alexkaratarakis/gitattributes/blob/master/ActionScript.gitattributes credit to that guy #
+## stackoverflow.com/questions/1529178/git-flash-builder-workflow-how-do-i-set-it-up-so-git-works-smoothly
+
+*.swf -crlf -diff -merge
+*.swc -crlf -diff -merge
+*.fla -crlf -diff -merge
