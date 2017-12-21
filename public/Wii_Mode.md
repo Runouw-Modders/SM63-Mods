@@ -13,6 +13,51 @@ This SWF should be loaded in a sign.
 Sekanor, Jhynjhiruu
 
 ### Code
-```actionscript
-_root.WiiMode = true;
+<details/>
+  <summary>DefineButton2 (5)</summary>
+  <details/>
+    <summary>BUTTONCONDACTION</summary>
+    
 ```
+on(press){
+   i = 1;
+   while(i <= 64)
+   {
+      _root.Star[i] = true;
+      _root.StarCoin[i] = true;
+      i++;
+   }
+   _root.BowserKey1 = true;
+   _root.BowserKey2 = true;
+   _root.BowserKey3 = true;
+   _root.CalculateStars();
+   _root.CalculateStarCoins();
+   _root.SaveFile();
+}
+```
+  </details>
+</details>
+<details/>
+  <summary>DefineButton2 (9)</summary>
+  <details/>
+    <summary>BUTTONCONDACTION</summary>
+    
+```
+on(press){
+   _root.WiiMode = true;
+}
+```
+  </details>
+</details>
+<details/>
+  <summary>DefineButton2 (12)</summary>
+  <details/>
+    <summary>BUTTONCONDACTION</summary>
+    
+```
+on(press){
+   _root.WiiMode = false;
+}
+```
+  </details>
+</details>
