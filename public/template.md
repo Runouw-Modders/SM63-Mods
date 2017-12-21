@@ -15,8 +15,8 @@ author1, author2
 ### Code
 <details/>
   <summary>frame 1</summary>
-    <details/>
-        <summary>doAction</summary>
+  <details/>
+      <summary>doAction</summary>
         
 ```
 _root.myFunction = function(input1)
