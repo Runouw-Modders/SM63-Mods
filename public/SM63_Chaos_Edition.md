@@ -18,7 +18,7 @@ Forgotten, Jhynjhiruu, Sekanor
     <details/>
       <summary>BUTTONCONDACTION</summary>
       
-```actionscript
+```
 on(press){
    _root.ReturnToTitle();
 }
@@ -30,7 +30,7 @@ on(press){
     <details/>
       <summary>BUTTONCONDACTION</summary>
   
-```actionscript
+```
 on(press){
    _root.randomise();
    _root.randomiseBGSong();
@@ -44,7 +44,7 @@ on(press){
     <details/>
       <summary>BUTTONCONDACTION</summary>
   
-```actionscript
+```
 on(press){
    _root.randomCounter = 0;
    _root.importantLevels = [["8-12","H"],["8-16",""],["8-E2-2",""],["8-E5-4",""]];
