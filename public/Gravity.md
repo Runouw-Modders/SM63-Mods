@@ -1,12 +1,3 @@
-Effect(s) of this SWF:
-This SWF sets the level gravity to a value determined in the <gravity:x> tag where x is a number, stringData.swf is also required
-
-How this SWF should be used:
-This SWF should be loaded in the level title with the page number indicated in a <gravity:x> tag
-
-Author(s) of this SWF:
-Jhynjhiruu
-
 # Gravity.swf
 
 ### Effect(s) of this SWF
