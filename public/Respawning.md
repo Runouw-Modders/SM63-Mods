@@ -13,7 +13,12 @@ This SWF should be loaded in the level title.
 Forgotten, Jhynjhiruu
 
 ### Code
-```actionscript
+<details/>
+  <summary>frame 1</summary>
+  <details/>
+    <summary>doAction</summary>
+    
+```
 _root.respawnX = Number(_root.startX) + _root.leftWidth * 32;
 _root.respawnY = Number(_root.startY);
 _root.checkpointlevel = _root.LDCourseName;
@@ -95,5 +100,6 @@ _root.PlayMessage = function(a)
    _root.Stats.Message.gotoAndPlay(1);
    _root.Stats.Message.mtext = a;
 };
-
 ```
+   </details>
+</details>
