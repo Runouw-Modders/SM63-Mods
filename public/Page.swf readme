@@ -1,8 +1,0 @@
-Effect(s) of this SWF:
-This SWF sets the level portal page to a value determined in the <page:x> tag where x is a number, stringData.swf is also required
-
-How this SWF should be used:
-This SWF should be loaded in the level title with the page number indicated in a <page:x> tag
-
-Author(s) of this SWF:
-Jhynjhiruu
