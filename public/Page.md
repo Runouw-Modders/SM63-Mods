@@ -17,6 +17,7 @@ Jhynjhiruu
   <summary>frame 1</summary>
   <details/>
     <summary>doAction</summary>
+    
 ```
 _root.Page = _root.stringData("page",_root.LDCourseName);
 ```
