@@ -13,7 +13,12 @@ This SWF should be loaded in the level title.
 Forgotten, Jhynjhiruu
 
 ### Code
-```actionscript
+<details/>
+  <summary>frame 1</summary>
+  <details/>
+      <summary>doAction</summary>
+      
+```
 _root.stringData = function(search, string)
 {
    if(string.indexOf("<" + search + ":") != -1)
@@ -36,3 +41,6 @@ _root.stringData = function(search, string)
    }
 };
 ```
+  </details>
+</details>
+ 
