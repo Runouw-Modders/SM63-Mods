@@ -22,3 +22,5 @@
 *.swf -crlf -diff -merge
 *.swc -crlf -diff -merge
 *.fla -crlf -diff -merge
+
+docs/* linguist-vendored
