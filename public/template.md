@@ -18,7 +18,7 @@ author1, author2
     <details/>
         <summary>doAction</summary>
         
-```actionscript
+```
 _root.myFunction = function(input1)
 {
     if(1 == 1)
