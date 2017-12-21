@@ -10,7 +10,7 @@ This SWF should be loaded in a sign.
 `%3Cimg%20src%3D%22https%3A%2F%2Fraw%2Egithubusercontent%2Ecom%2FRunouw%2DModders%2FSM63%2DMods%2Fmaster%2Fpublic%2FSM63%5FChaos%5FEdition%2Eswf%22%3E`
 
 ### Author(s) of this SWF
-Forgotten, Jhynjhiruu
+Forgotten, Jhynjhiruu, Sekanor
 
 ### Code
 ```actionscript
