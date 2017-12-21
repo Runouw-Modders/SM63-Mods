@@ -13,6 +13,12 @@ This SWF should be loaded in the level title with the gravity indicated in a `<g
 Jhynjhiruu
 
 ### Code
-```actionscript
+<details/>
+  <summary>frame 1</summary>
+  <details/>
+    <summary>doAction</summary>
+```
 _root.gravity = Number(_root.stringData("gravity",_root.LDCourseName));
 ```
+  </details>
+</details>
