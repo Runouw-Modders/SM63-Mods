@@ -13,6 +13,12 @@ This SWF should be loaded in the level title with the required page number indic
 Jhynjhiruu
 
 ### Code
-```actionscript
+<details/>
+  <summary>frame 1</summary>
+  <details/>
+    <summary>doAction</summary>
+```
 _root.Page = _root.stringData("page",_root.LDCourseName);
 ```
+  </details>
+</details>
