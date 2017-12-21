@@ -13,8 +13,15 @@ This SWF should be loaded in the level title with the jump height indicated in a
 Jhynjhiruu
 
 ### Code
-```actionscript
+<details/>
+  <summary>frame 1</summary>
+  <details/>
+      <summary>doAction</summary>
+      
+```
 _root.Mariojumpspeed = Number(_root.stringData("jumpHeight",_root.LDCourseName));
 _root.Luigijumpspeed = Number(_root.stringData("jumpHeight",_root.LDCourseName));
 _root.jumpspeed = Number(_root.stringData("jumpHeight",_root.LDCourseName));
 ```
+  </details>
+</details>
