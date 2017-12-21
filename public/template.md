@@ -27,5 +27,5 @@ _root.myFunction = function(input1)
     }
 };
 ```
-    
+  </details>
 </details>
