@@ -13,6 +13,11 @@ This SWF should be loaded in a sign or level title, preferably level title.
 author1, author2
 
 ### Code
+<details/>
+  <summary>frame 1</summary>
+    <details/>
+        <summary>doAction</summary>
+        
 ```actionscript
 _root.myFunction = function(input1)
 {
@@ -22,3 +27,5 @@ _root.myFunction = function(input1)
     }
 };
 ```
+    
+</details>
