@@ -1,13 +1,13 @@
-Effect(s) of this SWF:
-This SWF creates a function, _root.stringData();, which takes two inputs, both strings. This SWF is used to store data in strings, in the format <myVar:12345> or <myVar2:hello world>. If <myVar:12345> were to be put in a level title, _root.stringData("myVar", _root.LDCourseName); would return 12345.
+# Effect(s) of this SWF
+This SWF creates a function, `_root.stringData();`, which takes two inputs, both strings. This SWF is used to store data in strings, in the format `<myVar:12345>` or `<myVar2:hello world>`. If `<myVar:12345>` were to be put in a level title, `_root.stringData("myVar", _root.LDCourseName);` would return `12345`.
 
-How this SWF should be used:
+# How this SWF should be used
 This SWF should be loaded in a sign or level title, preferably level title
 
-Author(s) of this SWF:
+# Author(s) of this SWF
 Forgotten, Jhynjhiruu
 
-Code:
+# Code
 ```
 _root.stringData = function(search, string)
 {
