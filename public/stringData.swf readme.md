@@ -8,6 +8,7 @@ Author(s) of this SWF:
 Forgotten, Jhynjhiruu
 
 Code:
+```
 _root.stringData = function(search, string)
 {
    if(string.indexOf("<" + search + ":") != -1)
@@ -29,4 +30,4 @@ _root.stringData = function(search, string)
       }
    }
 };
-
+```
