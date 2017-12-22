@@ -248,46 +248,53 @@ _root.LifeLost = function()
 _root.PlayMessage = function(a)
 {
    _root.Stats.Message.gotoAndPlay(1);
-   if(_root.stringReplace(a,"%checkpoint%","") != a)
+   if(_root.checkpointlevel == _root.LDCourseName)
    {
-      _root.checkpointX = _root.Course.Char._x - _root.Course.BackGFX._x + _root.leftWidth * 32;
-      _root.checkpointY = _root.Course.Char._y - _root.Course.BackGFX._y;
-      _root.saveLDData("checkpointx",_root.checkpointX);
-      _root.saveLDData("checkpointy",_root.checkpointY);
-      _root.checkpointfluddh = _root.SaveFluddH;
-      _root.checkpointfluddr = _root.SaveFluddR;
-      _root.checkpointfluddt = _root.SaveFluddT;
-      _root.checkpointfluddpow = _root.Fluddpow;
-      _root.checkpointorangepl = _root.OrangeBlockPLCount;
-      _root.AreaTextClipF("Checkpoint updated!",0);
-      _root.Stats.Message.mtext = _root.stringReplace(a,"%checkpoint%","");
-   }
-   if(_root.stringReplace(a,"%timer%","") != a)
-   {
-      if(_root.timerOverrun == false)
+      if(_root.stringReplace(a,"%checkpoint%","") != a)
       {
-         if(_root.timerRunning)
+         _root.checkpointX = _root.Course.Char._x - _root.Course.BackGFX._x + _root.leftWidth * 32;
+         _root.checkpointY = _root.Course.Char._y - _root.Course.BackGFX._y;
+         _root.saveLDData("checkpointx",_root.checkpointX);
+         _root.saveLDData("checkpointy",_root.checkpointY);
+         _root.checkpointfluddh = _root.SaveFluddH;
+         _root.checkpointfluddr = _root.SaveFluddR;
+         _root.checkpointfluddt = _root.SaveFluddT;
+         _root.checkpointfluddpow = _root.Fluddpow;
+         _root.checkpointorangepl = _root.OrangeBlockPLCount;
+         _root.AreaTextClipF("Checkpoint updated!",0);
+         _root.Stats.Message.mtext = _root.stringReplace(a,"%checkpoint%","");
+      }
+      if(_root.stringReplace(a,"%timer%","") != a)
+      {
+         if(_root.timerOverrun == false)
          {
-            _root.setTimer(false);
-            _root.Stats.Message.mtext = _root.stringReplace(a,"%timer%",_root.minutesExtra + _root.timerMinutes + ":" + _root.secondsExtra + _root.timerSecondsMaths);
+            if(_root.timerRunning)
+            {
+               _root.setTimer(false);
+               _root.Stats.Message.mtext = _root.stringReplace(a,"%timer%",_root.minutesExtra + _root.timerMinutes + ":" + _root.secondsExtra + _root.timerSecondsMaths);
+            }
+            else if(_root.stringData("preTimer",_root.LDCourseName) != undefined)
+            {
+               _root.Stats.Message.mtext = _root.stringData("preTimer",_root.LDCourseName);
+            }
+            else
+            {
+               _root.Stats.Message.mtext = "Press \'t\' to begin timing (This will restart you at the beginning of the level, but your checkpoints will not be lost.)";
+            }
          }
-         else if(_root.stringData("preTimer",_root.LDCourseName) != undefined)
+         else if(_root.stringData("overrun",_root.LDCourseName) != undefined)
          {
-            _root.Stats.Message.mtext = _root.stringData("preTimer",_root.LDCourseName);
+            _root.Stats.Message.mtext = _root.stringData("overrun",_root.LDCourseName);
          }
          else
          {
-            _root.Stats.Message.mtext = "Press \'T\' to begin timing (This will restart you at the beginning of the level, but your checkpoints will not be lost.)";
+            _root.Stats.Message.mtext = "You took way, way too long! Time\'s up!\'";
          }
       }
-      else if(_root.stringData("overrun",_root.LDCourseName) != undefined)
-      {
-         _root.Stats.Message.mtext = _root.stringData("overrun",_root.LDCourseName);
-      }
-      else
-      {
-         _root.Stats.Message.mtext = "You took way, way too long! Time\'s up!\'";
-      }
+   }
+   else
+   {
+      _root.Stats.Message.mtext = a;
    }
 };
 
