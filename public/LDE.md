@@ -288,7 +288,7 @@ _root.PlayMessage = function(a)
          }
          else
          {
-            _root.Stats.Message.mtext = "You took way, way too long! Time\'s up!\'";
+            _root.Stats.Message.mtext = "You took way, way too long! Time\'s up!";
          }
       }
    }
