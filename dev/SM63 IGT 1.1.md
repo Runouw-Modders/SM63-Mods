@@ -3,20 +3,26 @@
 ### Effect(s) of this romhack
 This romhack, specifically made for speedrunners, adds an `in-game timer` to Super Mario 63.
   
+### How to use
+Use the <b>Plus</b> key to stop the timer, or to manually start it if it's stopped.
+The timer has been designed to automatically start at the beginning of a new loading zone, if it's not running.
+The <b>Minus</b> key is used to toggle between two updates modes:
+  - Timer updating at a new loading zone
+  - Timer constantly updating
 
-### How this SWF should be used
-This SWF should be loaded in a sign or level title, preferably level title.
 
-### Level code to load this SWF
-`%3Cimg%20src%3D%22https%3A%2F%2Fraw%2Egithubusercontent%2Ecom%2FRunouw%2DModders%2FSM63%2DMods%2Fmaster%2Fpublic%2Ftemplate%2Eswf%22%3E`
+### How to install
+Download the .zip file and execute it with the .exe file.
+If you want to use another flash player, then the .swf is included in the compressed folder as well.
 
-### Author(s) of this SWF
+### Author(s) of this romhack
 Sekanor, Jhynjhiruu
 
 ### Code
 <details/> 
 <summary>frame1_3</summary>
   
+  ```as3
     NewgroundsAPI.connectMovie(8160);
     
     // Variable initialisation
@@ -26,13 +32,14 @@ Sekanor, Jhynjhiruu
     _root.ILTimerAvoidRepeat = 0;
     _root.ILTimerDispMode = "NORMAL";
     _root.ILTimerUpdateMode = "LOADINGZONE";
+  ```
 
 </details>
 
 <details/>
 <summary>defineSprite(822)</summary>
 
-  ```
+  ```as3
   if((_root._quality == "BEST" || _root._quality == "HIGH") && _root.AutoQuality == true)
   {
      _root.Qualitynum--;
@@ -204,17 +211,17 @@ Sekanor, Jhynjhiruu
 
 <details/>
 <summary>defineSprite(1002: Shine Sprite Clip)_1</summary>
-```
-// Code injected onto line 69
-if(_root.ILTimerUpdateMode == "ALWAYS")
-{
-  _root.Timer_stop();
-}
-else
-{
-  _root.Timer_update();
-}
 
-```
+  ```as3
+  
+  if(_root.ILTimerUpdateMode == "ALWAYS")
+  {
+    _root.Timer_stop();
+  }
+  else
+  {
+    _root.Timer_update();
+  }
+  ```
 
 </details>
