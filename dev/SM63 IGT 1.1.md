@@ -104,10 +104,6 @@ Sekanor, Jhynjhiruu
         _root.TextHint = txtMinutes + ":" + txtSeconds + "." + txtMilliseconds;
      }
   };
-  if(_root.ILTimerState == "STOP")
-  {
-     _root.Timer_start();
-  }
   _root.Timer_addTime = function()
   {
      if(_root.ILTimerState == "RUN")
@@ -192,6 +188,10 @@ Sekanor, Jhynjhiruu
   };
   
   // Code executed when the FPS code loads
+  if(_root.ILTimerState == "STOP")
+  {
+     _root.Timer_start();
+  }
   _root.Timer_update();
   stop();
   
