@@ -1,2 +1,2 @@
 # SM63-Mods
-All the files used in modding SM63, excluding private dev stuff. The public debugger is here though!
+All the files used in modding SM63, excluding some dev stuff cos keeping that secret is fun.

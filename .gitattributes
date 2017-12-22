@@ -1,26 +1,2 @@
-# Auto detect text files and perform LF normalization
-* text=auto
-
-# Custom for Visual Studio
-*.cs     diff=csharp
-
-# Standard to msysgit
-*.doc	 diff=astextplain
-*.DOC	 diff=astextplain
-*.docx diff=astextplain
-*.DOCX diff=astextplain
-*.dot  diff=astextplain
-*.DOT  diff=astextplain
-*.pdf  diff=astextplain
-*.PDF	 diff=astextplain
-*.rtf	 diff=astextplain
-*.RTF	 diff=astextplain
-
-# handle swf's and swc's as binaries https://github.com/alexkaratarakis/gitattributes/blob/master/ActionScript.gitattributes credit to that guy #
-## stackoverflow.com/questions/1529178/git-flash-builder-workflow-how-do-i-set-it-up-so-git-works-smoothly
-
-*.swf -crlf -diff -merge
-*.swc -crlf -diff -merge
-*.fla -crlf -diff -merge
-
-docs/* linguist-vendored
+# set the language of the repo to ActionScript (because it is :P)
+*.swf linguist-language=actionscript
