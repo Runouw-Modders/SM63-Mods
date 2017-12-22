@@ -8,7 +8,7 @@ Use the <b>Plus</b> key to stop the timer, or to manually start it if it's stopp
 The timer has been designed to automatically start at the beginning of a new loading zone, if it's not running.
 The <b>Minus</b> key is used to toggle between two updates modes:
   - Timer updating at a new loading zone
-  - Timer constantly updating
+  - Timer always updating
 
 
 ### How to install
@@ -25,7 +25,7 @@ Sekanor, Jhynjhiruu
   ```as3
     NewgroundsAPI.connectMovie(8160);
     
-    // Variable initialisation
+    // Variables initialisation
     _root.ILTimer = 0;
     _root.ILTimerLastUpdate = 0;
     _root.ILTimerState = "RUN";
