@@ -1,4 +1,4 @@
-# Super Mario 63 In-Game Timer version 1.1
+# Super Mario 63 IG Timer v1.1
 
 ### Effect(s) of this romhack
 This romhack, specifically made for speedrunners, adds an in-game timer to Super Mario 63.
