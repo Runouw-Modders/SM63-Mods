@@ -6,7 +6,7 @@ This romhack, specifically made for ~~April~~ speedrunners, adds an in-game time
 ### How to use
 Use the **Plus** key to stop the timer, or to manually start it if it's stopped.
 The timer has been designed to automatically start at every loading zone, if it's not running.
-The **Minus** key is used to toggle between two updates modes:
+The **Minus** key is used to toggle between two update modes:
   - Timer updates at every loading zone
   - Timer always updates
 
