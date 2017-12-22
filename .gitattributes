@@ -23,7 +23,7 @@
 *.swc -crlf -diff -merge
 *.fla -crlf -diff -merge
 
-docs/* linguist-vendored
+
 
 $ cat .gitattributes
 *.swf linguist-language=actionscript
