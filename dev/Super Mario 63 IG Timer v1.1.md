@@ -13,7 +13,7 @@ The **Minus** key is used to toggle between two update modes:
 
 ### How to install
 Download the `.zip` file and execute it with the `.exe` file.
-If you want to use another flash player, the `.swf` is included in the compressed folder as well.
+If you want to use a different flash player, the `.swf` is included in the compressed folder as well.
 
 ### Author(s) of this romhack
 Sekanor, Jhynjhiruu
