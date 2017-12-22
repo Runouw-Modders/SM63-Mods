@@ -95,11 +95,6 @@ _root.LifeLost = function()
       _root.CreateLevelDesigner();
    }
 };
-_root.PlayMessage = function(a)
-{
-   _root.Stats.Message.gotoAndPlay(1);
-   _root.Stats.Message.mtext = a;
-};
 ```
    </details>
 </details>
