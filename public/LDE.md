@@ -1,7 +1,7 @@
 # LDE.swf
 
 ### Effect(s) of this SWF
-This SWF adds many new features to the level designer. These include respawning, checkpoints, and a manual timer.
+This SWF adds many new features to the level designer. These include respawning, checkpoints, and a manual timer. Some additional code is also present, including stringData, stringReplace and LD saving.
 
 ### How this SWF should be used
 This SWF should be loaded in the level title. The `<usesTimer:true/false>` tag should be included (although this isn't necessary). Before the timer is started, either user-defined text, inputted through `<preTimer:textGoesHere>` in the level title, or a fallback message, will be displayed in any signs with `%timer%` in them. After the timer has been started, the text in the sign will be displayed, except `%timer%` itself will be replaced with the final time. Pressing `T` will start the timer, and opening a sign with `%timer%` in it will stop the timer.
