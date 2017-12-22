@@ -150,7 +150,7 @@ $(function(){
             }
             if ($("#enablePage").is(":checked")) {
                 myPayload += myURLEncode('<img src="https://raw.githubusercontent.com/Runouw-Modders/SM63-Mods/master/public/Page.swf">');
-                myPayload += myURLEncode("<page:" + $("#pageValue").val() + ">");
+                myPayload += myURLEncode("<page:" + ($("#pageValue").val() - 1) + ">");
             }
             if ($("#enableRespawning").is(":checked")) {
                 myPayload += myURLEncode('<img src="https://raw.githubusercontent.com/Runouw-Modders/SM63-Mods/master/public/Respawning.swf">');
