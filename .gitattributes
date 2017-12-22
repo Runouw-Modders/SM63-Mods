@@ -24,3 +24,6 @@
 *.fla -crlf -diff -merge
 
 docs/* linguist-vendored
+
+$ cat .gitattributes
+*.rb linguist-language=Actionscript
