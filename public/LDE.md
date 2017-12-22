@@ -279,7 +279,7 @@ _root.PlayMessage = function(a)
             }
             else
             {
-               _root.Stats.Message.mtext = "Press \'t\' to begin timing (This will restart you at the beginning of the level, but your checkpoints will not be lost.)";
+               _root.Stats.Message.mtext = "Press \'T\' to begin timing (This will restart you at the beginning of the level, but your checkpoints will not be lost.)";
             }
          }
          else if(_root.stringData("overrun",_root.LDCourseName) != undefined)
