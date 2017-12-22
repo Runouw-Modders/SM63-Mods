@@ -1,7 +1,7 @@
-# template.swf
+# Super Mario 63 In-Game Timer version 1.1
 
 ### Effect(s) of this SWF
-This SWF does `this` thing.
+This romhack, specifically made for speedrunners, adds `this` thing.
 
 ### How this SWF should be used
 This SWF should be loaded in a sign or level title, preferably level title.
