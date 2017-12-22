@@ -26,4 +26,4 @@
 docs/* linguist-vendored
 
 $ cat .gitattributes
-*.swf linguist-language=Actionscript
+*.swf linguist-language=actionscript
