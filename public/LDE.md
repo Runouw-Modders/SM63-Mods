@@ -52,7 +52,7 @@ Jhynjhiruu, Forgotten, Shad
 <details/>
   <summary>frame 1</summary>
   <details/>
-      <summary>doAction</summary>
+      <summary>DoAction</summary>
         
 ```
 _root.stringData = function(search, string)
