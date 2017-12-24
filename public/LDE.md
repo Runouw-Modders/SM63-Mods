@@ -6,6 +6,7 @@ This SWF adds many new features to the level designer. These include respawning,
 ### How this SWF should be used
 This SWF should be loaded in the level title. The `<usesTimer:true/false>` tag should be included (although this isn't necessary). Before the timer is started, either user-defined text, inputted through `<preTimer:textGoesHere>` in the level title, or a fallback message, will be displayed in any signs with `%timer%` in them. After the timer has been started, the text in the sign will be displayed, except `%timer%` itself will be replaced with the final time. Pressing **T** will start the timer, and opening a sign with `%timer%` in it will stop the timer.
 `%checkpoint%` will be removed from any sign that contains it, and the sign will become a checkpoint.
+Additionally, if the `<respawnButton:true/false>` tag is included in the level title and set to `true`, pressing the **R** button ingame will perform a respawn.
 
 ### Level code to load this SWF
 `%3Cimg%20src%3D%22https%3A%2F%2Fraw%2Egithubusercontent%2Ecom%2FRunouw%2DModders%2FSM63%2DMods%2Fmaster%2Fpublic%2FLDE%2Eswf%22%3E`
@@ -13,6 +14,39 @@ This SWF should be loaded in the level title. The `<usesTimer:true/false>` tag s
 ### Author(s) of this SWF
 Jhynjhiruu, Forgotten, Shad
 
+### Tags
+<details/>
+  <summary>usesTimer</summary>
+  <details/>
+    <summary>true</summary>
+
+`%3CusesTimer%3Atrue%3E`
+  </details>
+  <details/>
+    <summary>false</summary>
+    
+`%3CusesTimer%3Afalse%3E`
+  </details>
+</details>
+<details/>
+  <summary>preTimer</summary>
+
+`%3CpreTimer%3AyourTextHere%3E`
+  </details>
+</details>
+<details/>
+  <summary>respawnButton</summary>
+  <details/>
+    <summary>true</summary>
+
+`%3CrespawnButton%3Atrue%3E`
+  </details>
+  <details/>
+    <summary>false</summary>
+    
+`%3CrespawnButton%3Afalse%3E`
+  </details>
+</details>
 ### Code
 <details/>
   <summary>frame 1</summary>
