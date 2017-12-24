@@ -134,13 +134,37 @@ _root.setTimer = function(a)
 };
 _root.KeySPIN = function()
 {
-   if(Key.isDown(84))
+   if(Key.isDown(84) && _root.timerKey == false)
    {
+      _root.timerKey = true;
       if(_root.stringData("usesTimer",_root.LDCourseName) == "true")
       {
          _root.setTimer(true);
          _root.respawnLD("timer");
       }
+   }
+   else if(Key.isDown(84) == false)
+   {
+      _root.timerKey = false;
+   }
+   if(Key.isDown(82) && _root.respawnKey == false)
+   {
+      _root.respawnKey = true;
+      if(_root.stringData("respawnButton",_root.LDCourseName) == "true")
+      {
+         if(_root.timerRunning)
+         {
+            _root.respawnLD("timer");
+         }
+         else
+         {
+            _root.respawnLD("regular");
+         }
+      }
+   }
+   else if(Key.isDown(82) == false)
+   {
+      _root.respawnKey = false;
    }
    if(_root.timerRunning)
    {
