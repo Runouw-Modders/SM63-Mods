@@ -185,7 +185,7 @@ _root.KeySPIN = function()
    if(Key.isDown(82) && _root.respawnKey == false)
    {
       _root.respawnKey = true;
-      if(_root.stringData("respawnButton",_root.LDCourseName) == "true")
+      if(_root.stringData("respawnButton",_root.LDCourseName) != "false")
       {
          if(_root.timerRunning)
          {
@@ -356,7 +356,6 @@ _root.PlayMessage = function(a)
       _root.Stats.Message.mtext = a;
    }
 };
-
 ```
   </details>
 </details>
