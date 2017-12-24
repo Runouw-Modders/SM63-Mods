@@ -47,6 +47,7 @@ Jhynjhiruu, Forgotten, Shad
 `%3CrespawnButton%3Afalse%3E`
   </details>
 </details>
+
 ### Code
 <details/>
   <summary>frame 1</summary>
