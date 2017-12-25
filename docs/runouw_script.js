@@ -1,5 +1,9 @@
 $(function(){
-
+    var assemblerVersionNumber = "0.7.7a";
+    $("title").append(" - Version " + assemblerVersionNumber);
+    $(".versionNumberText").html(assemblerVersionNumber);
+    $(".lastModifiedText").html(document.lastModified);
+    //################################################################ General functions
     function stepNumber(thisNumber, thisStep, thisMax, thisMin) {
         var newValue;
         if (thisMax === undefined) {
@@ -32,7 +36,15 @@ $(function(){
         }
         return newValue;
     }
-    
+    function sanityCheckString(thisString, thisTarget) {
+        var newValue
+        if (thisString.indexOf(thisTarget) == -1) {
+            newValue = thisString + thisTarget;            
+        } else {
+            newValue = thisString;
+        }
+        return newValue
+    }
     function myURLEncode(thisString) {
         var finalResult;
         finalResult = encodeURIComponent(thisString);
@@ -47,7 +59,7 @@ $(function(){
         finalResult = finalResult.replace(/[_]/g, "%5F");
         return finalResult;
     }
-    
+    //################################################################ change functions
     $("#assemblerMode").change(function(event){
         if ($("#assemblerMode").val() == "automatic") {
             $(".automatic").show();
@@ -74,8 +86,14 @@ $(function(){
             $("#enableStringData").prop( "checked", true );
         } 
     });
-    
-
+    $("#enableStringData").change(function(event){
+        if (! $("#enableStringData").is(":checked")) {
+            $("#enableJumpHeight").prop( "checked", false );
+            $("#enableGravity").prop( "checked", false );
+            $("#enablePage").prop( "checked", false );
+        } 
+    });
+    //################################################################ keydown functions
     $("#levelWidth").keydown(function(event){
         if (event.which == 40) {
             $("#levelWidth").val(stepNumber($("#levelWidth").val(), -1, 999, 25));
@@ -114,12 +132,73 @@ $(function(){
             $("#pageValue").val(stepNumber($("#pageValue").val(), 1, 999, 1));
         }
     });
+    $("#checkpointSignLocation").keydown(function(event){
+        if (event.which == 40) {
+            $("#checkpointSignLocation").val(stepNumber($("#checkpointSignLocation").val(), -1, $("#levelWidth").val(), 0));
+        } else if (event.which == 38) {
+            $("#checkpointSignLocation").val(stepNumber($("#checkpointSignLocation").val(), 1, $("#levelWidth").val(), 0));
+        }
+    });
+    //################################################################ blur functions
+    $("#levelWidth").blur(function(event){
+        $("#levelWidth").val(sanityCheck($("#levelWidth").val(), 999, 25));
+    });
+    $("#levelHeight").blur(function(event){
+        $("#levelHeight").val(sanityCheck($("#levelHeight").val(), 999, 17));
+    });
+    $("#jumpHeightValue").blur(function(event){
+        $("#jumpHeightValue").val(sanityCheck($("#jumpHeightValue").val(), 99, 1));
+    });
+    $("#gravityValue").blur(function(event){
+        $("#gravityValue").val(sanityCheck($("#gravityValue").val(), 1, 0.1));
+    });
+    $("#pageValue").blur(function(event){
+        $("#pageValue").val(sanityCheck($("#pageValue").val(), 999, 1));
+    });
+    $("#checkpointSignLocation").blur(function(event){
+        $("#checkpointSignLocation").val(sanityCheck($("#checkpointSignLocation").val(), $("#levelWidth").val(), 0));
+    });
+    
+    //################################################################ click functions
+    
+    //################################################################ expand functions
+    $("#timerExpandButton").click(function(event){
+        if($("#timerExpandButton").html() == "+") {
+            $("#timerExpandButton").html("-");
+            $("#timerExpandBlock").show();
+        } else {
+            $("#timerExpandButton").html("+");
+            $("#timerExpandBlock").hide();
+        }
+    });
+    $("#checkpointExpandButton").click(function(event){
+        if($("#checkpointExpandButton").html() == "+") {
+            $("#checkpointExpandButton").html("-");
+            $("#checkpointExpandBlock").show();
+        } else {
+            $("#checkpointExpandButton").html("+");
+            $("#checkpointExpandBlock").hide();
+        }
+    });
+    //################################################################ create code functions
+    $("#addCheckpointSign").click(function(event){
+        var mySignCode = "|73," + ($("#checkpointSignLocation").val() * 32) + ","; 
+        mySignCode += (($("#levelHeight").val() * 32) - 96) + ",";
+        mySignCode += myURLEncode($("#checkpointSignText").val());
+        mySignCode += myURLEncode("%checkpoint%");
+        if($("#signListContents").html() == "List of signs to add goes here.") {
+            $("#signListContents").html(mySignCode);
+        } else {
+            $("#signListContents").append(mySignCode);
+        }
+    });
     
     $("#generateLevelCode").click(function(event){
-        var myLevelCode, myLand, myBackground, myHeight, myWidth, myLevelName, myPayload;
+        var myLevelCode, myLand, myBackground, myHeight, myWidth, myLevelName, myTitlePayload, mySignPayload;
         myLevelCode = $("#levelWidth").val() + "x" + $("#levelHeight").val() + "~";
         myLevelName = myURLEncode($("#levelName").val()); 
-        myPayload = "";
+        myTitlePayload = "";
+        mySignPayload = "";
         if ($("#levelStyle").val() == "grass"){ //Determine style for flatland
             myLand = "2K2M";
             myBackground = "~1~1~";
@@ -138,49 +217,56 @@ $(function(){
         }
         
         if ($("#enableLDE").is(":checked")) {
-            myPayload = myURLEncode('<img src="https://raw.githubusercontent.com/Runouw-Modders/SM63-Mods/master/public/LDE.swf">');
+            myTitlePayload = myURLEncode('<img src="https://raw.githubusercontent.com/Runouw-Modders/SM63-Mods/master/public/LDE.swf">');
+            if ($("#enableLDETimer").is(":checked")) {
+                myTitlePayload += myURLEncode("<usesTimer:true>");
+                if ($("#preTimerText").val() != "This is the text that displays before you start") {
+                    myTitlePayload += myURLEncode("<preTimer:" + $("#preTimerText").val() + ">");
+                }
+                mySignPayload += "|73," + (($("#levelWidth").val() * 32) - 160) + ",";
+                mySignPayload += (($("#levelHeight").val() * 32) - 96) + ",";
+                mySignPayload += myURLEncode(sanityCheckString($("#timerSign").val(), "%timer%"));
+            }
+            if ($("#signListContents").html() != "List of signs to add goes here.") {
+                mySignPayload += $("#signListContents").html();
+            }
         } else {
             if ($("#enableJumpHeight").is(":checked")) {
-                myPayload = myURLEncode('<img src="https://raw.githubusercontent.com/Runouw-Modders/SM63-Mods/master/public/jumpHeight.swf">');
-                myPayload += myURLEncode("<jumpHeight:" + $("#jumpHeightValue").val() + ">");
+                myTitlePayload = myURLEncode('<img src="https://raw.githubusercontent.com/Runouw-Modders/SM63-Mods/master/public/jumpHeight.swf">');
+                myTitlePayload += myURLEncode("<jumpHeight:" + $("#jumpHeightValue").val() + ">");
             }
             if ($("#enableGravity").is(":checked")) {
-                myPayload += myURLEncode('<img src="https://raw.githubusercontent.com/Runouw-Modders/SM63-Mods/master/public/Gravity.swf">');
-                myPayload += myURLEncode("<gravity:" + $("#gravityValue").val() + ">");
+                myTitlePayload += myURLEncode('<img src="https://raw.githubusercontent.com/Runouw-Modders/SM63-Mods/master/public/Gravity.swf">');
+                myTitlePayload += myURLEncode("<gravity:" + $("#gravityValue").val() + ">");
             }
             if ($("#enablePage").is(":checked")) {
-                myPayload += myURLEncode('<img src="https://raw.githubusercontent.com/Runouw-Modders/SM63-Mods/master/public/Page.swf">');
-                myPayload += myURLEncode("<page:" + ($("#pageValue").val() - 1) + ">");
+                myTitlePayload += myURLEncode('<img src="https://raw.githubusercontent.com/Runouw-Modders/SM63-Mods/master/public/Page.swf">');
+                myTitlePayload += myURLEncode("<page:" + ($("#pageValue").val() - 1) + ">");
             }
             if ($("#enableRespawning").is(":checked")) {
-                myPayload += myURLEncode('<img src="https://raw.githubusercontent.com/Runouw-Modders/SM63-Mods/master/public/Respawning.swf">');
+                myTitlePayload += myURLEncode('<img src="https://raw.githubusercontent.com/Runouw-Modders/SM63-Mods/master/public/Respawning.swf">');
             }
             if ($("#enableStringData").is(":checked")) {
-                myPayload += myURLEncode('<img src="https://raw.githubusercontent.com/Runouw-Modders/SM63-Mods/master/public/stringData.swf">');
+                myTitlePayload += myURLEncode('<img src="https://raw.githubusercontent.com/Runouw-Modders/SM63-Mods/master/public/stringData.swf">');
             }
             if ($("#enableWiiMode").is(":checked")) {
-                myPayload += myURLEncode('<img src="https://raw.githubusercontent.com/Runouw-Modders/SM63-Mods/master/public/Wii_Mode.swf">');
+                myTitlePayload += myURLEncode('<img src="https://raw.githubusercontent.com/Runouw-Modders/SM63-Mods/master/public/Wii_Mode.swf">');
             }
             if ($("#enableChaosEdition").is(":checked")) {
-                myPayload += myURLEncode('<img src="https://raw.githubusercontent.com/Runouw-Modders/SM63-Mods/master/public/SM63_Chaos_Edition.swf">');
+                myTitlePayload += myURLEncode('<img src="https://raw.githubusercontent.com/Runouw-Modders/SM63-Mods/master/public/SM63_Chaos_Edition.swf">');
             }
         }
-        
+
         myHeight = ($("#levelHeight").val() * 32) - 128;
         myWidth = ($("#levelWidth").val() * 32) - 128;
         myLevelCode += "~1,0," + myHeight + ",0,0,Right|"; //Mario
         myLevelCode += "6," + myWidth + "," + myHeight; //Shine Sprite
-        if ($("#payloadLocation").val() == "title") {
-            myLevelCode += myBackground + myLevelName + myPayload; //Load it in the title
-        } else {
-            myLevelCode += "|73,48," + (myHeight + 32) + "," + myPayload + ","; //Sign with selected options
-            myLevelCode += myBackground + myLevelName;
-        }
-        $("#myOutput").html(myLevelCode);
+        myLevelCode += mySignPayload + myBackground + myLevelName + myTitlePayload;
+        $("#levelCodeContents").html(myLevelCode);
     });
     
-    $("#selectText").click(function(event){
-        $("#myOutput").select();
+    $("#levelCodeSelect").click(function(event){
+        $("#levelCodeContents").select();
     });
      
     

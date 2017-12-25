@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<title>SM63 Level Designer 2.5.7.6a - Assembler</title>
+		<title>SM63 Level Designer - Assembler</title>
         <link rel="stylesheet" type="text/css" href="runouw_style.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="runouw_script.js"></script>
@@ -32,11 +32,9 @@
                 <option value="automatic" selected>Automatic</option>
                 <option value="custom">Custom</option>
                 </select></td></tr>
-                <tr><td class="label">Payload Location:</td><td><select id="payloadLocation">
-                <option value="title" selected>Level Title</option>
-                <option value="sign">Sign</option>
-                </select></td></tr>
-                <tr><td class="label">Level Name:</td><td><input type="text" id="levelName" size="60" value="My Hacked Level"/></td></tr>
+                <tr><td class="label">Level Name:</td><td><input type="text" id="levelName" size="40" value="My Hacked Level"/></td></tr>
+                <tr><td colspan="2"><p class="warning">For any number field, up arrow increases, and down arrow decreases. 
+                <br />Hold the key down for rapid change.</p></td></tr>
                 <tr><td class="label">Level Width:</td><td><input type="text" id="levelWidth" size="5" value="25"/></td></tr>
                 <tr><td class="label">Level Height:</td><td><input type="text" id="levelHeight" size="5" value="17"/></td></tr>
                 <tr><td class="label">Level Style:</td><td><select id="levelStyle">
@@ -44,8 +42,27 @@
                 <option value="cave">Cave</option>
                 <option value="snow">Snow</option>
                 <option value="desert">Desert</option>
-                </select></td></tr>
+                </select></td></tr></table>
+                <table class="withBorder">
                 <tr class="automatic"><td class="label">LDE:</td><td>Enabled <input type="checkbox" id="enableLDE" value="1" checked></td></tr>
+                <tr class="automatic"><td class="label"><button type="button" class="expandButton" id="timerExpandButton">+</button> LDE Timer:</td><td>
+                    <div class="blockForLDEFunction" id="timerExpandBlock">
+                        <p>Enabled <input type="checkbox" id="enableLDETimer" value="1"></p>
+                        <p>Pre-Timer Text: <input type="text" id="preTimerText" size="40" value="This is the text that displays before you start"/></p>
+                        <p>Timer End Sign: <input type="text" id="timerSign" size="40" value="You beat the level in %timer%!"/></p>
+                        <p class="warning">You have to leave the "%timer%" part in there for the sign to work, but you can change all of the rest to whatever. 
+                            If you leave out the "%timer%", it will automatically be added to the end of the sign text when the code is generated.</p>
+                    </div>
+                </td></tr>
+                <tr class="automatic"><td class="label"><button type="button" class="expandButton" id="checkpointExpandButton">+</button>LDE Checkpoints:</td><td>
+                    <div class="blockForLDEFunction" id="checkpointExpandBlock">
+                        <p>Checkpoint Sign Text: <input type="text" id="checkpointSignText" size="30" value="You've made it to a checkpoint."/><br />
+                        <p>Sign Location (horizontal x tiles): <input type="text" id="checkpointSignLocation" size="5" value="10"/></p>
+                        <p style="width:100%; text-align:center;"><button type="button" class="medium" id="addCheckpointSign">Add Sign to Level</button></p>
+                        <p class="warning">Any sign with "%checkpoint%" in it becomes a checkpoint (it is added automatically here), but be aware that checkpoints do not work when the timer is on.</p>
+                        <p><textarea class="outputContents" id="signListContents" disabled="disabled">List of signs to add goes here.</textarea></p>
+                    </div>
+                </td></tr>
                 <tr class="custom"><td class="label">Jump Height:</td><td>Enabled <input type="checkbox" id="enableJumpHeight" value="2.1">
                     Value: <input type="text" id="jumpHeightValue" size="3" value="1"/></td></tr>
                 <tr class="custom"><td class="label">Gravity:</td><td>Enabled <input type="checkbox" id="enableGravity" value="2.2">
@@ -58,9 +75,9 @@
                 <tr class="custom"><td class="label">Chaos Edition:</td><td>Enabled <input type="checkbox" id="enableChaosEdition" value="2.7"></td></tr>
                 </table>
                 <button type="button" id="generateLevelCode">Generate Code</button>
-                <div id="outputBlock">
-                    <div id="selectText">Select Text</div>
-                    <textarea id="myOutput">Output goes here.</textarea>
+                <div class="outputBlock" id="levelCodeBlock">
+                    <div class="selectText" id="levelCodeSelect">Select Text</div>
+                    <textarea class="outputContents" id="levelCodeContents">Output goes here.</textarea>
                 </div>
                 
                 <hr />
