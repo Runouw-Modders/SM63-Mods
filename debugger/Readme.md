@@ -1,6 +1,7 @@
 #Using the Debugger
 
-##Summary
+###Summary
+
 The debugger comes in two forms. Form **a** uses CinemaMessage, which is reliable but ugly, and form **b** uses AreaTextClipF, which doesn't always work but is much neater.
 They both load code from a file named [payload.swf](https://github.com/Runouw-Modders/SM63-Mods/blob/master/debugger/payload.swf), which has to be located in the same directory as the SM63 executable.
 The supplied `payload.swf` autoruns code in `frame 1` -> `DoAction`.
@@ -9,7 +10,8 @@ Usable commands can be found in the SM63 functions/variables [documentation spre
 
 You can run the code ingame by pressing the **minus** (**-**) key.
 
-##Usage
+###Usage
+
 Download `payload.swf` and place it in the same directory as your SM63 executable. Create a new level designer level, place a sign and enter either `<img src="https://raw.githubusercontent.com/Runouw-Mods/SM63-Mods/master/debugger/a.swf">` if you want to use form **a** or `<img src="https://raw.githubusercontent.com/Runouw-Mods/SM63-Mods/master/debugger/b.swf">` if you want to use form **b**. 
 Premade level codes are available [here](https://raw.githubusercontent.com/Runouw-Mods/SM63-Mods/master/debugger/Debugging.md) if you want them.
 
