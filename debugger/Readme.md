@@ -13,7 +13,7 @@ You can run the code ingame by pressing the **minus** (**-**) key.
 ### Usage
 
 Download `payload.swf` and place it in the same directory as your SM63 executable. Create a new level designer level, place a sign and enter either `<img src="https://raw.githubusercontent.com/Runouw-Mods/SM63-Mods/master/debugger/a.swf">` if you want to use form **a** or `<img src="https://raw.githubusercontent.com/Runouw-Mods/SM63-Mods/master/debugger/b.swf">` if you want to use form **b**. 
-Premade level codes are available [here](https://raw.githubusercontent.com/Runouw-Mods/SM63-Mods/master/debugger/Debugging.md) if you want them.
+Premade level codes are available [here](https://github.com/Runouw-Modders/SM63-Mods/blob/master/debugger/Debugging.md) if you want them.
 
 Test the level and open the sign. Click the `Activate` button to begin debugging or `Deactivate` to end.
 Once activated, press **minus** (**-**) to run `payload.swf`.
