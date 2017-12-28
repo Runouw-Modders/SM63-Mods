@@ -1,7 +1,7 @@
 # sound.swf
 
 ### Effect(s) of this SWF
-This SWF replaces the background music in a level.
+This SWF replaces the background music in a level with an .mp3 file inputted through an `audio` tag.
 
 ### How this SWF should be used
 This SWF should be loaded in the level title, and requires `stringData.swf`.
@@ -13,7 +13,7 @@ This SWF should be loaded in the level title, and requires `stringData.swf`.
 <details/>
   <summary>audio</summary>
 
-`%3Caudio%3Ahttp%3A%2F%2FyourURLHere%2Emp3%3E`
+`%3Caudio%3AyourMP3URLHere%3E`
 </details>
 
 ### Author(s) of this SWF
