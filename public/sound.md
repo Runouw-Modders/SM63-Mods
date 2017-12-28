@@ -26,27 +26,68 @@ Jhynjhiruu
       <summary>DoAction</summary>
         
 ```
-if(_root.installed != true)
+_root.customMusic = _root.LDCourseName;
+_root.PlayMusicAndIntro = function()
 {
-   _root.audioExt = _root.stringData("audio",_root.LDCourseName);
-   _root.bgsong.stop();
-   _root.bgsong = new Sound(soundLoader);
-   _root.bgsong.loadSound(_root.audioExt,true);
-   _root.bgsong.onSoundComplete = function()
+   if(_root.customMusic == _root.LDCourseName)
    {
+      _root.audioExt = _root.stringData("audio",_root.LDCourseName);
+      _root.bgsong.stop();
+      _root.bgsong = new Sound(soundLoader);
       _root.bgsong.loadSound(_root.audioExt,true);
-   };
-}
-_root.installed = true;
-_root.KeyPlus = function()
-{
-   _root.installed = false;
-   if(Key.isDown(33) || Key.isDown(187))
-   {
-      return true;
+      _root.bgsong.onSoundComplete = function()
+      {
+         _root.bgsong.loadSound(_root.audioExt,true);
+      };
    }
-   return false;
+   else if(_root.SongIntro !== undefined && _root.SongIntro !== "None")
+   {
+      _root.StopBGsong();
+      _root.bgsong.stop();
+      _root.bgsong = new Sound(this);
+      _root.bgsong.attachSound(_root.SongIntro);
+      if(_root.MuteBGMusic == false)
+      {
+         _root.bgsong.start(0,1);
+      }
+      _root.bgsong.setVolume(_root.BgVolume);
+      _root.bgsong.onSoundComplete = function()
+      {
+         _root.bgsong.attachSound(_root.SongRepeat);
+         if(_root.MuteBGMusic == false)
+         {
+            _root.bgsong.start(0,999);
+         }
+         _root.bgsong.setVolume(_root.BgVolume);
+      };
+   }
+   else
+   {
+      _root.StopBGsong();
+      _root.bgsong.stop();
+      _root.bgsong = new Sound(this);
+      _root.bgsong.attachSound(_root.SongRepeat);
+      if(_root.MuteBGMusic == false)
+      {
+         _root.bgsong.start(0,999);
+      }
+      _root.bgsong.setVolume(_root.BgVolume);
+      _root.bgsong.onSoundComplete = function()
+      {
+         _root.bgsong.attachSound(_root.SongRepeat);
+         if(_root.MuteBGMusic == false)
+         {
+            _root.bgsong.start(0,999);
+         }
+         _root.bgsong.setVolume(_root.BgVolume);
+      };
+   }
 };
+if(_root.playedMusic != true)
+{
+   _root.playedMusic = true;
+   _root.PlayMusicAndIntro();
+}
 ```
   </details>
 </details>
