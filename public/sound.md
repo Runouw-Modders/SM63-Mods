@@ -31,7 +31,7 @@ if(_root.playedMusic == undefined)
    _root.playedMusic = true;
    _root.PlayMusicAndIntro = function()
    {
-      if(_root.stringData("audio",_root.LDCourseName) != undefined)
+      if(_root.stringReplace(_root.LDCourseName,"<audio:","") != _root.LDCourseName)
       {
          _root.audioExt = _root.stringData("audio",_root.LDCourseName);
          _root.bgsong.stop();
