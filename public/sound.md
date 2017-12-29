@@ -83,7 +83,7 @@ _root.PlayMusicAndIntro = function()
       };
    }
 };
-if(_root.playedMusic != true)
+if(_root.playedMusic == undefined)
 {
    _root.playedMusic = true;
    _root.PlayMusicAndIntro();
