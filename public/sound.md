@@ -26,66 +26,65 @@ Jhynjhiruu
       <summary>DoAction</summary>
         
 ```
-_root.customMusic = _root.LDCourseName;
-_root.PlayMusicAndIntro = function()
-{
-   if(_root.customMusic == _root.LDCourseName)
-   {
-      _root.audioExt = _root.stringData("audio",_root.LDCourseName);
-      _root.bgsong.stop();
-      _root.bgsong = new Sound(soundLoader);
-      _root.bgsong.loadSound(_root.audioExt,true);
-      _root.bgsong.onSoundComplete = function()
-      {
-         _root.bgsong.loadSound(_root.audioExt,true);
-      };
-   }
-   else if(_root.SongIntro !== undefined && _root.SongIntro !== "None")
-   {
-      _root.StopBGsong();
-      _root.bgsong.stop();
-      _root.bgsong = new Sound(this);
-      _root.bgsong.attachSound(_root.SongIntro);
-      if(_root.MuteBGMusic == false)
-      {
-         _root.bgsong.start(0,1);
-      }
-      _root.bgsong.setVolume(_root.BgVolume);
-      _root.bgsong.onSoundComplete = function()
-      {
-         _root.bgsong.attachSound(_root.SongRepeat);
-         if(_root.MuteBGMusic == false)
-         {
-            _root.bgsong.start(0,999);
-         }
-         _root.bgsong.setVolume(_root.BgVolume);
-      };
-   }
-   else
-   {
-      _root.StopBGsong();
-      _root.bgsong.stop();
-      _root.bgsong = new Sound(this);
-      _root.bgsong.attachSound(_root.SongRepeat);
-      if(_root.MuteBGMusic == false)
-      {
-         _root.bgsong.start(0,999);
-      }
-      _root.bgsong.setVolume(_root.BgVolume);
-      _root.bgsong.onSoundComplete = function()
-      {
-         _root.bgsong.attachSound(_root.SongRepeat);
-         if(_root.MuteBGMusic == false)
-         {
-            _root.bgsong.start(0,999);
-         }
-         _root.bgsong.setVolume(_root.BgVolume);
-      };
-   }
-};
 if(_root.playedMusic == undefined)
 {
    _root.playedMusic = true;
+   _root.PlayMusicAndIntro = function()
+   {
+      if(_root.stringData("audio",_root.LDCourseName) != undefined)
+      {
+         _root.audioExt = _root.stringData("audio",_root.LDCourseName);
+         _root.bgsong.stop();
+         _root.bgsong = new Sound(soundLoader);
+         _root.bgsong.loadSound(_root.audioExt,true);
+         _root.bgsong.onSoundComplete = function()
+         {
+            _root.bgsong.loadSound(_root.audioExt,true);
+         };
+      }
+      else if(_root.SongIntro !== undefined && _root.SongIntro !== "None")
+      {
+         _root.StopBGsong();
+         _root.bgsong.stop();
+         _root.bgsong = new Sound(this);
+         _root.bgsong.attachSound(_root.SongIntro);
+         if(_root.MuteBGMusic == false)
+         {
+            _root.bgsong.start(0,1);
+         }
+         _root.bgsong.setVolume(_root.BgVolume);
+         _root.bgsong.onSoundComplete = function()
+         {
+            _root.bgsong.attachSound(_root.SongRepeat);
+            if(_root.MuteBGMusic == false)
+            {
+               _root.bgsong.start(0,999);
+            }
+            _root.bgsong.setVolume(_root.BgVolume);
+         };
+      }
+      else
+      {
+         _root.StopBGsong();
+         _root.bgsong.stop();
+         _root.bgsong = new Sound(this);
+         _root.bgsong.attachSound(_root.SongRepeat);
+         if(_root.MuteBGMusic == false)
+         {
+            _root.bgsong.start(0,999);
+         }
+         _root.bgsong.setVolume(_root.BgVolume);
+         _root.bgsong.onSoundComplete = function()
+         {
+            _root.bgsong.attachSound(_root.SongRepeat);
+            if(_root.MuteBGMusic == false)
+            {
+               _root.bgsong.start(0,999);
+            }
+            _root.bgsong.setVolume(_root.BgVolume);
+         };
+      }
+   };
    _root.PlayMusicAndIntro();
 }
 ```
