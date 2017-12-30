@@ -36,10 +36,31 @@ if(_root.playedMusic == undefined)
          _root.audioExt = _root.stringData("audio",_root.LDCourseName);
          _root.bgsong.stop();
          _root.bgsong = new Sound(soundLoader);
+         _root.bgsong.onLoad = function(success)
+         {
+            if(success)
+            {
+               _root.bgsong.stop();
+            }
+            else
+            {
+               _root.bgsong.loadSound(_root.audioExt,true);
+            }
+         };
          _root.bgsong.loadSound(_root.audioExt,true);
+         if(_root.MuteBGMusic == false)
+         {
+            _root.bgsong.start(0,1);
+         }
+         _root.bgsong.setVolume(_root.BgVolume);
          _root.bgsong.onSoundComplete = function()
          {
             _root.bgsong.loadSound(_root.audioExt,true);
+            if(_root.MuteBGMusic == false)
+            {
+               _root.bgsong.start(0,999);
+            }
+            _root.bgsong.setVolume(_root.BgVolume);
          };
       }
       else if(_root.SongIntro !== undefined && _root.SongIntro !== "None")
