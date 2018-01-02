@@ -52,8 +52,9 @@
                         <p>Enabled <input type="checkbox" id="enableLDETimer" value="1"></p>
                         <p>Pre-Timer Text: <input type="text" id="preTimerText" size="40" value="This is the text that displays before you start"/></p>
                         <p>Timer End Sign: <input type="text" id="timerSign" size="40" value="You beat the level in %timer%!"/></p>
-                        <p class="warning">You have to leave the "%timer%" part in there for the sign to work, but you can change all of the rest to whatever. 
-                            If you leave out the "%timer%", it will automatically be added to the end of the sign text when the code is generated.</p>
+			    <p class="warning">When this sign is opened <i>after</i> the timer has started, "%timer%" will be replaced with the timer's 
+                    final value. It must be in there for the sign to work, but you can change all of the rest to whatever. 
+                    If you leave out "%timer%", it will automatically be added to the end of the sign text when the level code is generated.</p>
                     </div>
                 </td></tr>
                 <tr class="automatic"><td class="label"><button type="button" class="expandButton" id="checkpointExpandButton">+</button>LDE Checkpoints:</td><td>
@@ -62,7 +63,7 @@
                         <p>Sign Location (horizontal x tiles): <input type="text" id="checkpointSignLocation" size="5" value="10"/></p>
                         <p class="buttonContainer"><button type="button" class="medium" id="addCheckpointSign">Add Sign to Level</button></p>
                         <p class="warning">Any sign with "%checkpoint%" in it becomes a checkpoint (it is added automatically here), 
-                            but be aware that checkpoints are disabled when the timer is on.</p>
+                            but be aware that checkpoints are disabled when the timer is running.</p>
                         <p><textarea class="outputContents" id="signListContents" disabled="disabled">List of signs to add goes here.</textarea></p>
                     </div>
                 </td></tr>
@@ -117,7 +118,7 @@
                 <button type="button" id="generateLevelCode">Generate Code</button>
                 <div class="outputBlock" id="levelCodeBlock">
                     <div class="selectText" id="levelCodeSelect">Select Text</div>
-                    <textarea class="outputContents" id="levelCodeContents">Output goes here.</textarea>
+                    <textarea class="outputContents" id="levelCodeContents">Press the <b>Generate Code</b> button to generate the final level code.</textarea>
                 </div>
                 
                 <hr />
