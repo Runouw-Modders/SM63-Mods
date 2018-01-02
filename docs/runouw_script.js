@@ -1,5 +1,5 @@
 $(function(){
-    var assemblerVersionNumber = "0.8.3.1a";
+    var assemblerVersionNumber = "0.8.3.2a";
     $("title").append(" - Version " + assemblerVersionNumber);
     $(".versionNumberText").html(assemblerVersionNumber);
     $(".lastModifiedText").html(document.lastModified);
