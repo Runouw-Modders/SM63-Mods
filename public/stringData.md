@@ -2,6 +2,7 @@
 
 ### Effect(s) of this SWF
 This SWF creates a function, `_root.stringData();`, which takes two inputs, both strings. This SWF is used to store data in strings, in the format `<myVar:12345>` or `<myVar2:hello world>`. If `<myVar:12345>` were to be put in a level title, `_root.stringData("myVar", _root.LDCourseName);` would return `12345`.
+It also creates a function, `_root.stringReplace();`, which takes three inputs, all strings. This function returns the first input with all instances of the second input replaced with the third.
 
 ### How this SWF should be used
 This SWF should be loaded in the level title.
@@ -39,6 +40,10 @@ _root.stringData = function(search, string)
          return i;
       }
    }
+};
+_root.stringReplace = function(str, find, replace)
+{
+   return str.split(find).join(replace);
 };
 ```
   </details>
