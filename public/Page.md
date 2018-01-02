@@ -10,7 +10,7 @@ This SWF should be loaded in the level title with the required page number indic
 `%3Cimg%20src%3D%22https%3A%2F%2Fraw%2Egithubusercontent%2Ecom%2FRunouw%2DModders%2FSM63%2DMods%2Fmaster%2Fpublic%2FPage%2Eswf%22%3E`
 
 ### URL for LD2.5
-`https://raw.githubusercontent.com/Runouw-Modders/SM63-Mods/master/public/LDE.swf`
+`https://raw.githubusercontent.com/Runouw-Modders/SM63-Mods/master/public/Page.swf`
 
 ### Author(s) of this SWF
 Jhynjhiruu
