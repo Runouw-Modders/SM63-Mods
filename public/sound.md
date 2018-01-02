@@ -16,6 +16,9 @@ This SWF should be loaded in the level title, and requires `stringData.swf`.
 `%3Caudio%3AyourMP3URLHere%3E`
 </details>
 
+### URL for LD2.5
+`https://raw.githubusercontent.com/Runouw-Modders/SM63-Mods/master/public/sound.swf`
+
 ### Author(s) of this SWF
 Jhynjhiruu
 
