@@ -13,6 +13,9 @@ display:block;
 font-family: sans-serif;
 font-size: 1.1em;
 }
+main.embedded {
+padding: 0px 0px 0px 140px;
+}
 nav {
 float: left;
 height: 600px;
@@ -85,7 +88,7 @@ width: 160px;
 font-weight: bold;
 text-align: right;
 }
-form tr.custom {
+form tr.custom, form tr.manual {
 display: none;
 }
 form button {
@@ -102,6 +105,14 @@ form button.medium {
 font-size: 1em;
 width: 200px;
 margin: 10px auto;
+}
+td p {
+margin: 5px 5px 10px;
+}
+p.buttonContainer {
+width:100%;
+margin: 5px;
+text-align:center;
 }
 .outputBlock {
 width: 90%;
@@ -134,6 +145,7 @@ border:1px inset blue
 }
 .currentVersion {
 width: 90%;
+margin: 10px auto;
 text-align: center;
 padding: 10px;
 background-color: #79A7E3;
@@ -166,6 +178,17 @@ font-size: 100%;
 .expandButton:active {
 border: 1px inset #999;
 }
-.blockForLDEFunction {
+.expandableBlock {
 display:none;
+}
+header.embedpage {
+height: auto;
+max-width: 100%;
+}
+main.embedpage {
+margin: 10px;
+padding: 10px;
+}
+div#container {
+margin: 10px;
 }

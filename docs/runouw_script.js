@@ -1,5 +1,5 @@
 $(function(){
-    var assemblerVersionNumber = "0.7.7a";
+    var assemblerVersionNumber = "0.8.3a";
     $("title").append(" - Version " + assemblerVersionNumber);
     $(".versionNumberText").html(assemblerVersionNumber);
     $(".lastModifiedText").html(document.lastModified);
@@ -64,10 +64,17 @@ $(function(){
         if ($("#assemblerMode").val() == "automatic") {
             $(".automatic").show();
             $(".custom").hide();
+            $(".manual").hide();
             $("#enableLDE").prop( "checked", true );
-        } else {
+        } else if ($("#assemblerMode").val() == "custom") {
             $(".automatic").hide();
             $(".custom").show();
+            $(".manual").hide();
+            $("#enableLDE").prop( "checked", false );
+        } else {
+            $(".automatic").hide();
+            $(".custom").hide();
+            $(".manual").show();
             $("#enableLDE").prop( "checked", false );
         }
     });
@@ -180,6 +187,42 @@ $(function(){
             $("#checkpointExpandBlock").hide();
         }
     });
+    $("#manualLoadExpandButton").click(function(event){
+        if($("#manualLoadExpandButton").html() == "+") {
+            $("#manualLoadExpandButton").html("-");
+            $("#manualLoadExpandBlock").show();
+        } else {
+            $("#manualLoadExpandButton").html("+");
+            $("#manualLoadExpandBlock").hide();
+        }
+    });
+    $("#manualDataExpandButton").click(function(event){
+        if($("#manualDataExpandButton").html() == "+") {
+            $("#manualDataExpandButton").html("-");
+            $("#manualDataExpandBlock").show();
+        } else {
+            $("#manualDataExpandButton").html("+");
+            $("#manualDataExpandBlock").hide();
+        }
+    });
+    $("#manualDisplayExpandButton").click(function(event){
+        if($("#manualDisplayExpandButton").html() == "+") {
+            $("#manualDisplayExpandButton").html("-");
+            $("#manualDisplayExpandBlock").show();
+        } else {
+            $("#manualDisplayExpandButton").html("+");
+            $("#manualDisplayExpandBlock").hide();
+        }
+    });
+    $("#manualEncodeExpandButton").click(function(event){
+        if($("#manualEncodeExpandButton").html() == "+") {
+            $("#manualEncodeExpandButton").html("-");
+            $("#manualEncodeExpandBlock").show();
+        } else {
+            $("#manualEncodeExpandButton").html("+");
+            $("#manualEncodeExpandBlock").hide();
+        }
+    });
     //################################################################ create code functions
     $("#addCheckpointSign").click(function(event){
         var mySignCode = "|73," + ($("#checkpointSignLocation").val() * 32) + ","; 
@@ -192,7 +235,40 @@ $(function(){
             $("#signListContents").append(mySignCode);
         }
     });
-    
+    $("#addSWF").click(function(event) {
+        if ($("#thisSWFLocation").val() == "sign") {
+            var mySignCode = "|73,256,"; 
+            mySignCode += (($("#levelHeight").val() * 32) - 96) + ",";
+            mySignCode += myURLEncode('<img src="https://raw.githubusercontent.com/Runouw-Modders/SM63-Mods/master/public/' + $("#thisSWFName").val() + '.swf">');
+            if($("#signCode").html() == "Contents of sign code goes here.") {
+                $("#signCode").html(mySignCode);
+            } else {
+                $("#signCode").append(mySignCode);
+            }
+        } else {
+            var myTitleCode = myURLEncode('<img src="https://raw.githubusercontent.com/Runouw-Modders/SM63-Mods/master/public/' + $("#thisSWFName").val() + '.swf">');
+            if($("#titleCode").html() == "Contents of title code goes here.") {
+                $("#titleCode").html(myTitleCode);
+            } else {
+                $("#titleCode").append(myTitleCode);
+            }
+        }
+    });
+    $("#addData").click(function(event) {
+        var myTitleCode = "<";
+        myTitleCode += $("#thisTagName").val();
+        myTitleCode += ":";
+        myTitleCode += $("#thisTagData").val();
+        myTitleCode += ">";
+        if($("#titleCode").html() == "Contents of title code goes here.") {
+            $("#titleCode").html(myURLEncode(myTitleCode));
+        } else {
+            $("#titleCode").append(myURLEncode(myTitleCode));
+        }
+    });
+    $("#encodeData").click(function(event) {
+        $("#encodeResults").html(myURLEncode($("#encodeSource").val()));
+    });
     $("#generateLevelCode").click(function(event){
         var myLevelCode, myLand, myBackground, myHeight, myWidth, myLevelName, myTitlePayload, mySignPayload;
         myLevelCode = $("#levelWidth").val() + "x" + $("#levelHeight").val() + "~";
@@ -216,7 +292,11 @@ $(function(){
             myLevelCode += "0*" + ($("#levelHeight").val() - 2) + "*" + myLand;
         }
         
-        if ($("#enableLDE").is(":checked")) {
+        PayloadCalculation:
+        if (($("#assemblerMode").val() == "automatic")) {
+            if (! $("#enableLDE").is(":checked")) {
+                break PayloadCalculation;
+            }
             myTitlePayload = myURLEncode('<img src="https://raw.githubusercontent.com/Runouw-Modders/SM63-Mods/master/public/LDE.swf">');
             if ($("#enableLDETimer").is(":checked")) {
                 myTitlePayload += myURLEncode("<usesTimer:true>");
@@ -230,7 +310,7 @@ $(function(){
             if ($("#signListContents").html() != "List of signs to add goes here.") {
                 mySignPayload += $("#signListContents").html();
             }
-        } else {
+        } else if ($("#assemblerMode").val() == "custom") {
             if ($("#enableJumpHeight").is(":checked")) {
                 myTitlePayload = myURLEncode('<img src="https://raw.githubusercontent.com/Runouw-Modders/SM63-Mods/master/public/jumpHeight.swf">');
                 myTitlePayload += myURLEncode("<jumpHeight:" + $("#jumpHeightValue").val() + ">");
@@ -255,6 +335,13 @@ $(function(){
             if ($("#enableChaosEdition").is(":checked")) {
                 myTitlePayload += myURLEncode('<img src="https://raw.githubusercontent.com/Runouw-Modders/SM63-Mods/master/public/SM63_Chaos_Edition.swf">');
             }
+        } else if ($("#assemblerMode").val() == "manual") {
+            if ($("#titleCode").val() != "Contents of title code goes here.") {
+                myTitlePayload += $("#titleCode").val();
+            }
+            if ($("#signCode").val() != "Contents of sign code goes here.") {
+                mySignPayload += $("#signCode").val();
+            }
         }
 
         myHeight = ($("#levelHeight").val() * 32) - 128;
@@ -264,12 +351,14 @@ $(function(){
         myLevelCode += mySignPayload + myBackground + myLevelName + myTitlePayload;
         $("#levelCodeContents").html(myLevelCode);
     });
-    
+    //################################################################ other functions
     $("#levelCodeSelect").click(function(event){
         $("#levelCodeContents").select();
     });
      
-    
+    $("#returnToMain").click(function(event){
+        window.location.assign("index.html");
+    });
 
 
 }); 

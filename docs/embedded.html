@@ -1,0 +1,59 @@
+<html>
+	<head>
+		<title>SM63 Level Designer Mods - Embedded LD-Only Game</title>
+        <link rel="stylesheet" type="text/css" href="runouw_style.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="runouw_script.js"></script>
+	</head>
+	<body>
+		<script>
+			var whratio = 1.5;
+			var hSmall = 0.25;
+			var hMedium = 0.50;
+			var hLarge = 0.75;
+			var hXl = 0.90;
+			
+			function resize(size) {
+				var h = window.innerHeight;
+				if(size === "25") {
+					document.swf.height = hSmall*h;
+				}
+				if(size === "50") {
+					document.swf.height = hMedium*h;
+				}
+				if(size === "75") {
+					document.swf.height = hLarge*h;
+				}
+				if(size === "90") {
+					document.swf.height = hXl*h;
+				}
+				if(size === "max") {
+					var h = window.innerHeight;
+					document.swf.height = h;
+				}
+				document.swf.width = whratio * document.swf.height;
+				return;
+			}
+		</script>
+        <header class="embedpage">
+           <h1>Embedded Level-Designer-Only Game</h1>
+           <p class="buttonContainer"><button type="button" class="medium" id="returnToMain">Return to SM63 LD Mods Site</button></p>
+        </header>
+        <main class="embedpage">
+            <div id="container" style="text-align:center">
+                <object id="swf" height="300" width="450" data="https://www.dropbox.com/s/k4x4j3hdhi77zx6/sm63leveldesigner.swf"></object>
+            </div>
+            <div id="buttons" style="text-align:center">
+                Game size:
+                <button type="button" onclick="resize('25')">25%</button>
+                <button type="button" onclick="resize('50')">50%</button>
+                <button type="button" onclick="resize('75')">75%</button>
+                <button type="button" onclick="resize('90')">90%</button>
+                <button type="button" onclick="resize('max')">Maximum</button>
+            </div>
+            <p class="currentVersion"> Special thanks to OJ for Dropbox hosting of the game file.
+            <br />Maintained by the SM63 Hackers on the SM63 Mods Github.
+            <br />Last update: <span class="lastModifiedText"></span></p>
+        </main>
+	</body>
+</html>

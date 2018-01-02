@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<title>SM63 Level Designer - Assembler</title>
+		<title>SM63 Level Designer Mods - Assembler</title>
         <link rel="stylesheet" type="text/css" href="runouw_style.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="runouw_script.js"></script>
@@ -14,6 +14,7 @@
         <nav>
             <a class="page_at">Assembler</a>
             <a href="instructions.html">Instructions</a>
+            <a href="embedded.html">Embedded LD Only</a>
             <a href="about.html">About</a>
             <a href="https://github.com/Runouw-Modders/SM63-Mods">Github Main</a>
             <a href="https://github.com/Runouw-Modders/SM63-Mods/tree/master/public">Hack File List</a>
@@ -31,6 +32,7 @@
                 <select id="assemblerMode">
                 <option value="automatic" selected>Automatic</option>
                 <option value="custom">Custom</option>
+                <option value="manual">Manual</option>
                 </select></td></tr>
                 <tr><td class="label">Level Name:</td><td><input type="text" id="levelName" size="40" value="My Hacked Level"/></td></tr>
                 <tr><td colspan="2"><p class="warning">For any number field, up arrow increases, and down arrow decreases. 
@@ -46,7 +48,7 @@
                 <table class="withBorder">
                 <tr class="automatic"><td class="label">LDE:</td><td>Enabled <input type="checkbox" id="enableLDE" value="1" checked></td></tr>
                 <tr class="automatic"><td class="label"><button type="button" class="expandButton" id="timerExpandButton">+</button> LDE Timer:</td><td>
-                    <div class="blockForLDEFunction" id="timerExpandBlock">
+                    <div class="expandableBlock" id="timerExpandBlock">
                         <p>Enabled <input type="checkbox" id="enableLDETimer" value="1"></p>
                         <p>Pre-Timer Text: <input type="text" id="preTimerText" size="40" value="This is the text that displays before you start"/></p>
                         <p>Timer End Sign: <input type="text" id="timerSign" size="40" value="You beat the level in %timer%!"/></p>
@@ -55,11 +57,12 @@
                     </div>
                 </td></tr>
                 <tr class="automatic"><td class="label"><button type="button" class="expandButton" id="checkpointExpandButton">+</button>LDE Checkpoints:</td><td>
-                    <div class="blockForLDEFunction" id="checkpointExpandBlock">
-                        <p>Checkpoint Sign Text: <input type="text" id="checkpointSignText" size="30" value="You've made it to a checkpoint."/><br />
+                    <div class="expandableBlock" id="checkpointExpandBlock">
+                        <p>Checkpoint Sign Text: <input type="text" id="checkpointSignText" size="40" value="You've made it to a checkpoint."/><br />
                         <p>Sign Location (horizontal x tiles): <input type="text" id="checkpointSignLocation" size="5" value="10"/></p>
-                        <p style="width:100%; text-align:center;"><button type="button" class="medium" id="addCheckpointSign">Add Sign to Level</button></p>
-                        <p class="warning">Any sign with "%checkpoint%" in it becomes a checkpoint (it is added automatically here), but be aware that checkpoints do not work when the timer is on.</p>
+                        <p class="buttonContainer"><button type="button" class="medium" id="addCheckpointSign">Add Sign to Level</button></p>
+                        <p class="warning">Any sign with "%checkpoint%" in it becomes a checkpoint (it is added automatically here), 
+                            but be aware that checkpoints are disabled when the timer is on.</p>
                         <p><textarea class="outputContents" id="signListContents" disabled="disabled">List of signs to add goes here.</textarea></p>
                     </div>
                 </td></tr>
@@ -73,6 +76,43 @@
                 <tr class="custom"><td class="label">String Data:</td><td>Enabled <input type="checkbox" id="enableStringData" value="2.5"></td></tr>
                 <tr class="custom"><td class="label">Wii Mode:</td><td>Enabled <input type="checkbox" id="enableWiiMode" value="2.6"></td></tr>
                 <tr class="custom"><td class="label">Chaos Edition:</td><td>Enabled <input type="checkbox" id="enableChaosEdition" value="2.7"></td></tr>
+                <tr class="manual"><td colspan="2">
+                    <p class="warning">These functions are more dangerous and less automated so that a pro (or developer)
+                    can chuck stuff into a level easily, including stuff that isn't built into this assembler.
+                    As a result, you can put stuff in here that you write yourself, but you are responsible for making sure 
+                    it's valid (including URL Encoding everything that needs it).</p>
+                </td></tr>
+                <tr class="manual"><td class="label"><button type="button" class="expandButton" id="manualLoadExpandButton">+</button> Load SWF:</td><td>
+                    <div class="expandableBlock" id="manualLoadExpandBlock">
+                        <p>SWF Name:<br /><input type="text" id="thisSWFName" size="40" value=""/></p>
+                        <p>SWF Location: <select id="thisSWFLocation">
+                            <option value="title" selected>Title</option>
+                            <option value="sign">Sign</option>
+                        </select></p>
+                        <p class="buttonContainer"><button type="button" class="medium" id="addSWF">Add SWF to Level</button></p>
+                    </div>
+                </td></tr>
+                <tr class="manual"><td class="label"><button type="button" class="expandButton" id="manualDataExpandButton">+</button> Data Tag:</td><td>
+                    <div class="expandableBlock" id="manualDataExpandBlock">
+                        <p>Tag Name:<br /><input type="text" id="thisTagName" size="40" value=""/></p>
+                        <p>Data:<br /><input type="text" id="thisTagData" size="40" value=""/></p>
+                        <p class="buttonContainer"><button type="button" class="medium" id="addData">Add Data to Level</button></p>
+                    </div>
+                </td></tr>
+                <tr class="manual"><td class="label"><button type="button" class="expandButton" id="manualDisplayExpandButton">+</button> Payload Specific:<br />(display/edit)</td><td>
+                    <div class="expandableBlock" id="manualDisplayExpandBlock">
+                        <p class="warning">You can eit the text directly here, but be sure to use the encode function just below here, if you do.</p>
+                        <p><textarea class="outputContents" id="titleCode">Contents of title code goes here.</textarea></p>
+                        <p><textarea class="outputContents" id="signCode">Contents of sign code goes here.</textarea></p>
+                    </div>
+                </td></tr>
+                <tr class="manual"><td class="label"><button type="button" class="expandButton" id="manualEncodeExpandButton">+</button> URL Encode This:</td><td>
+                    <div class="expandableBlock" id="manualEncodeExpandBlock">
+                        <p>Text to be encoded:<br /><input type="text" id="encodeSource" size="40" value=""/></p>
+                        <p class="buttonContainer"><button type="button" class="medium" id="encodeData">Encode This</button></p>
+                        <p><textarea class="outputContents" id="encodeResults">Encode results appear here.</textarea></p>
+                    </div>
+                </td></tr>
                 </table>
                 <button type="button" id="generateLevelCode">Generate Code</button>
                 <div class="outputBlock" id="levelCodeBlock">
