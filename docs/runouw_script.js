@@ -1,5 +1,5 @@
 $(function(){
-    var assemblerVersionNumber = "0.8.3a";
+    var assemblerVersionNumber = "0.8.3.1a";
     $("title").append(" - Version " + assemblerVersionNumber);
     $(".versionNumberText").html(assemblerVersionNumber);
     $(".lastModifiedText").html(document.lastModified);
@@ -261,6 +261,7 @@ $(function(){
         myTitleCode += $("#thisTagData").val();
         myTitleCode += ">";
         if($("#titleCode").html() == "Contents of title code goes here.") {
+            myTitleCode = myURLEncode('<img src="https://raw.githubusercontent.com/Runouw-Modders/SM63-Mods/master/public/stringData.swf">') + myTitleCode;
             $("#titleCode").html(myURLEncode(myTitleCode));
         } else {
             $("#titleCode").append(myURLEncode(myTitleCode));
