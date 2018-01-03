@@ -3,7 +3,11 @@
 		<title>SM63 Level Designer Mods - Embedded LD-Only Game</title>
         <link rel="stylesheet" type="text/css" href="runouw_style.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script src="runouw_script.js"></script>
+        <script src="runouw_script.js"></script><meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+	<script type="text/javascript" src="swfobject.js"></script>
+	<script type="text/javascript">
+		swfobject.registerObject("ldOnly", "9.0.0");
+	</script>
 	</head>
 	<body>
 		<script>
@@ -40,7 +44,20 @@
            <p class="buttonContainer"><button type="button" class="medium" id="returnToMain">Return to SM63 LD Mods Site</button></p>
         </header>
         <main class="embedpage">
-		<p>Not available right now, sorry...</p>
+		<div>
+			<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="300" height="450" id="ldOnly">
+				<param name="movie" value="/images/sm63leveldesigner.swf">
+				<!--[if !IE]>-->
+				<object type="application/x-shockwave-flash" data="/images/sm63leveldesigner.swf" width="300" height="450">
+				<!--<![endif]-->
+					<a href="http://www.adobe.com/go/getflashplayer">
+						<img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player">
+					</a>
+				<!--[if !IE]>-->
+				</object>
+				<!--<![endif]-->
+			</object>
+		</div>
             <div id="buttons" style="text-align:center">
                 Game size:
                 <button type="button" onclick="resize('25')">25%</button>
