@@ -57,6 +57,7 @@ $(function(){
         finalResult = finalResult.replace(/[-]/g, "%2D");
         finalResult = finalResult.replace(/[.]/g, "%2E");
         finalResult = finalResult.replace(/[_]/g, "%5F");
+        finalResult = finalResult.replace(/[~]/g, "%7E");
         return finalResult;
     }
     //################################################################ change functions
