@@ -23,32 +23,36 @@ Forgotten, Jhynjhiruu
       <summary>doAction</summary>
 
 ```
-_root.stringData = function(search, string)
+if(_root.stringDataInstalled == undefined)
 {
-   if(string.indexOf("<" + search + ":") != -1)
+   _root.stringDataInstalled = true;
+   _root.stringData = function(search, string)
    {
-      i = string;
-      i = i.slice(i.indexOf("<" + search + ":"));
-      if(i.indexOf("<",1) != -1)
+      if(string.indexOf("<" + search + ":") != -1)
       {
-         i = i.slice(0,i.indexOf("<",1));
-      }
-      if(i.indexOf(">") != -1)
-      {
-         i = i.slice(i.indexOf(":") + 1,i.indexOf(">"));
-         if(isNaN(Number(i)) == false)
+         i = string;
+         i = i.slice(i.indexOf("<" + search + ":"));
+         if(i.indexOf("<",1) != -1)
          {
-            return Number(i);
+            i = i.slice(0,i.indexOf("<",1));
          }
-         return i;
+         if(i.indexOf(">") != -1)
+         {
+            i = i.slice(i.indexOf(":") + 1,i.indexOf(">"));
+            if(isNaN(Number(i)) == false)
+            {
+               return Number(i);
+            }
+            return i;
+         }
       }
-   }
-   return null;
-};
-_root.stringReplace = function(str, find, replace)
-{
-   return str.split(find).join(replace);
-};
+      return null;
+   };
+   _root.stringReplace = function(str, find, replace)
+   {
+      return str.split(find).join(replace);
+   };
+}
 ```
   </details>
 </details>
