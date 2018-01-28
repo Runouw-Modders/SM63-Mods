@@ -21,7 +21,7 @@ Forgotten, Jhynjhiruu
   <summary>frame 1</summary>
   <details/>
       <summary>doAction</summary>
-      
+
 ```
 _root.stringData = function(search, string)
 {
@@ -43,6 +43,7 @@ _root.stringData = function(search, string)
          return i;
       }
    }
+   return null;
 };
 _root.stringReplace = function(str, find, replace)
 {
@@ -51,4 +52,3 @@ _root.stringReplace = function(str, find, replace)
 ```
   </details>
 </details>
- 
