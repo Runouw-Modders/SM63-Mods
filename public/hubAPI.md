@@ -24,9 +24,9 @@ Jhynjhiruu
 ```
 if(_root.hubAPIInstalled != true)
 {
-   System.security.allowDomain("raw.githubusercontent.com");
+   System.security.loadPolicyFile("https://raw.githubusercontent.com/Runouw-Modders/SM63-Mods/master/crossdomain.xml");
    _root.hubAPIInstalled = true;
-   trace("hubAPI v1.1.0 installed");
+   trace("hubAPI v1.1.1 installed");
    _root.loadCourseFromData = function(data)
    {
       _root.levelCodeToLoad = data.toString();
