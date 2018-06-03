@@ -24,8 +24,9 @@ Jhynjhiruu
 ```
 if(_root.hubAPIInstalled != true)
 {
+   System.security.allowDomain("raw.githubusercontent.com");
    _root.hubAPIInstalled = true;
-   trace("hubAPI v1.0.0 installed");
+   trace("hubAPI v1.1.0 installed");
    _root.loadCourseFromData = function(data)
    {
       _root.levelCodeToLoad = data.toString();
@@ -208,7 +209,6 @@ if(_root.hubAPIInstalled != true)
    };
    setInterval(_root.resetPan,31.25);
 }
-
 ```
   </details>
 </details>
