@@ -66,7 +66,7 @@ if(_root.cinema != true)
    _root.newPM = _root.PlayMessage;
    _root.PlayMessage = function(a)
    {
-      if(_root.stringData(a,"cinemamessage") != null)
+      if(_root.stringData(a,"cinemamessage") != -1)
       {
          _root.CinemaMessageFrame = _root.stringData(a,"cinemamessage");
          _root.SetCinemaMessageQueue(a.split("!n"));

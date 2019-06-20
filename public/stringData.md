@@ -26,27 +26,30 @@ Forgotten, Jhynjhiruu
 if(_root.stringDataInstalled == undefined)
 {
    _root.stringDataInstalled = true;
-   _root.stringData = function(search, string)
+   _root.stringData = function(string, tag)
    {
-      if(string.indexOf("<" + search + ":") != -1)
+      if(string.indexOf("<" + tag + ":") != -1)
       {
-         i = string;
-         i = i.slice(i.indexOf("<" + search + ":"));
-         if(i.indexOf("<",1) != -1)
+         var _loc3_ = string;
+         _loc3_ = _loc3_.slice(_loc3_.indexOf("<" + tag + ":"));
+         if(_loc3_.indexOf("<",1) != -1)
          {
-            i = i.slice(0,i.indexOf("<",1));
+            _loc3_ = _loc3_.slice(0,_loc3_.indexOf("<",1));
          }
-         if(i.indexOf(">") != -1)
+         if(_loc3_.indexOf(">") != -1)
          {
-            i = i.slice(i.indexOf(":") + 1,i.indexOf(">"));
-            if(isNaN(Number(i)) == false)
+            _loc3_ = _loc3_.slice(_loc3_.indexOf(":") + 1,_loc3_.indexOf(">"));
+            if(isNaN(Number(_loc3_)) == false)
             {
-               return Number(i);
+               return Number(_loc3_);
             }
-            return i;
+            if(isNaN(Number(_loc3_)) == true)
+            {
+               return _loc3_;
+            }
          }
+         return -1;
       }
-      return null;
    };
    _root.stringReplace = function(str, find, replace)
    {
