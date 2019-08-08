@@ -33,6 +33,7 @@ _root.respawnLD = function()
 {
    _root.attachMovie("StarIn","Transition",_root.getNextHighestDepth(),{_x:_root.screensizeX / 2,_y:_root.screensizeY / 2});
    _root.RestartFludd();
+   _root.Fluddpow = "";
    _root.Restartcoins();
    for(var _loc2_ in _root.Course.BackGFX)
    {
