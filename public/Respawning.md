@@ -31,6 +31,8 @@ if(_root.LevelSplit !== true)
 }
 _root.respawnLD = function()
 {
+   _root.attachMovie("StarIn","Transition",_root.getNextHighestDepth(),{_x:_root.screensizeX / 2,_y:_root.screensizeY / 2});
+   _root.RestartFludd();
    _root.Restartcoins();
    for(var _loc2_ in _root.Course.BackGFX)
    {
@@ -48,10 +50,8 @@ _root.respawnLD = function()
    _root.Course.Char._y = _root.respawnY + _root.Course.BackGFX._y;
    _root.Course.Char.xspeed = Number(_root.startXspeed);
    _root.Course.Char.yspeed = Number(_root.startYspeed);
-   _root.RestartFludd();
    _root.OrangeBlockPLCount = 0;
    _root.Course.Char.attack = false;
-   _root.attachMovie("StarIn","Transition",_root.getNextHighestDepth(),{_x:_root.screensizeX / 2,_y:_root.screensizeY / 2});
    _root.PlayMusicAndIntro();
    _root.Camspeed = 1;
    _root.MaxCamspeed = 99999;
