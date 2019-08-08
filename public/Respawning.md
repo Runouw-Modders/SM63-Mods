@@ -31,23 +31,25 @@ if(_root.LevelSplit !== true)
 }
 _root.respawnLD = function()
 {
-   _root.Invincible = false;
-   _root.Metal = false;
-   _root.Invisible = false;
-   _root.WingCap = false;
-   _root.PowerTimer = 0;
+   _root.Restartcoins();
+   for(var _loc2_ in _root.Course.BackGFX)
+   {
+      if(_loc2_.substr(0,10) == "SilverStar" || _loc2_.substr(-5,4) == "Coin" || _loc2_.substr(-4,4) == "Coin" || _loc2_.substr(0,15) == "ShineSpriteClip")
+      {
+         tmpDepth = _root.Course.BackGFX[_loc2_].getDepth();
+         tmpX = _root.Course.BackGFX[_loc2_]._x;
+         tmpY = _root.Course.BackGFX[_loc2_]._y;
+         _root.Course.BackGFX[_loc2_].removeMovieClip(_loc2_);
+         _root.Course.BackGFX.attachMovie(_loc2_.substr(0,_loc2_.length - 1),_loc2_,tmpDepth,{_x:tmpX,_y:tmpY,LevelDesigner:true});
+      }
+   }
    _root.newstar = false;
    _root.Course.Char._x = _root.respawnX + _root.Course.BackGFX._x - _root.leftWidth * 32;
    _root.Course.Char._y = _root.respawnY + _root.Course.BackGFX._y;
    _root.Course.Char.xspeed = Number(_root.startXspeed);
    _root.Course.Char.yspeed = Number(_root.startYspeed);
-   _root.SaveFluddH = false;
-   _root.SaveFluddR = false;
-   _root.SaveFluddT = false;
-   _root.Fluddpow = "";
+   _root.RestartFludd();
    _root.OrangeBlockPLCount = 0;
-   _root.CharHP = 8;
-   _root.WaterHP = 8;
    _root.Course.Char.attack = false;
    _root.attachMovie("StarIn","Transition",_root.getNextHighestDepth(),{_x:_root.screensizeX / 2,_y:_root.screensizeY / 2});
    _root.PlayMusicAndIntro();
