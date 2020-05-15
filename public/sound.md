@@ -1,7 +1,7 @@
 # sound.swf
 
 ### Effect(s) of this SWF
-This SWF replaces the background music in a level with an .mp3 file inputted through an `audio` tag.
+This SWF replaces the background music in a level with an .mp3 file input through an `audio` tag.
 
 ### How this SWF should be used
 This SWF should be loaded in the level title, and requires `stringData.swf`.
@@ -36,7 +36,7 @@ if(_root.playedMusic == undefined)
    {
       if(_root.stringReplace(_root.LDCourseName,"<audio:","") != _root.LDCourseName)
       {
-         _root.audioExt = _root.stringData("audio",_root.LDCourseName);
+         _root.audioExt = _root.stringData(_root.LDCourseName,"audio");
          _root.bgsong.stop();
          _root.bgsong = new Sound(soundLoader);
          _root.bgsong.loadSound(_root.audioExt,true);
@@ -88,7 +88,15 @@ if(_root.playedMusic == undefined)
          };
       }
    };
-   _root.PlayMusicAndIntro();
+   _root.testStringDataLoaded = function()
+   {
+      if(_root.stringData != undefined)
+      {
+         _root.PlayMusicAndIntro();
+         clearInterval(_root.testStringDataInterval);
+      }
+   };
+   _root.testStringDataInterval = setInterval(_root.testStringDataLoaded,31.25);
 }
 ```
   </details>
